@@ -1,10 +1,28 @@
-function loadHtml(url, targetId) {
-	$.ajax({
-			url: url,
-			dataType: "html",
-			async: false,
-			success: function(msg) {
-				$("#"+targetId).html(msg);
-		}
-	})
-}
+//头部js
+(function () {
+	$("li.iphone",header).hover(function(){
+		$("div.iphone").toggle();
+	},function(){
+		$("div.iphone").toggle();
+	});
+	$("li.wx",header).hover(function(){
+		$("div.wx").toggle();
+	},function(){
+		$("div.wx").toggle();
+	});
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
