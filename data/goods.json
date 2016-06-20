@@ -1,0 +1,270 @@
+//abord:海外购
+//fresh:新鲜货
+//"imgSrc":图片路径
+//"describe":商品描述
+//"price":价格
+//"oldPrice":原商品价格
+//"fast":闪购
+//"discount":打折
+//"specialPrice":特价
+
+
+
+
+[
+	{	
+	"goods1":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods2":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods3":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods4":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods5":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{	
+	"goods6":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods7":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods8":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods9":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods10":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{	
+	"goods11":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods12":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods13":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods14":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	},
+	{
+		"goods15":{
+		"abord":false,
+		
+		"fresh":false,
+		
+		"imgSrc":"images/goods1.jpg",
+		"describe":"八鲜岛 香酥带鱼250g",
+		"price":"24",
+		"oldPrice":"29.00",
+		
+		"fast":true,
+		"discount":"5.2折",
+		
+		"specialPrice":false
+		}
+	}
+]
