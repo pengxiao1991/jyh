@@ -1,0 +1,42 @@
+/*头部样式*/
+#header{}
+.header-t{background: #E5E5E5;height: 30px;line-height: 30px;}
+.header-t .margin{}
+.header-t a{color: #666666;}
+.header-t a:hover{color: #dc0f50;text-decoration: underline;}
+.header-t-r ul{}
+.header-t-r ul li{color: #666;margin-right: 18px;margin-left: 8px;}
+.header-t-r ul li span{color: #DC0F50;}
+.header-t-r ul li.iphone{position: relative;}
+.header-t-r ul li.wx{}
+.header-t-r ul li span.iphone{background: url(../../img/iphone.png);width: 8px;height: 12px;display: inline-block;vertical-align: middle;}
+.header-t-r ul li span.wx{background: url(../../img/wx.png);width: 15px;height: 12px;display: inline-block;vertical-align: middle;}
+.header-t-r ul li div.iphone{text-align: center;display: none;border: 1px solid #E5E5E5;position: absolute;right: 0;width: 122px;height: 164px;padding: 14px 13px 0;margin-top: 1px;font-size: 16px;}
+.header-t-r ul li div.iphone img:last-child{width: 14px;height: 11px;position: absolute;top:-11px;right: 11px;}
+.header-t-r ul li div.iphone img{width: 120px;height: 120px;}
+.header-t-r ul li div.wx{text-align: center;display: none;border: 1px solid #E5E5E5;position: absolute;right: 50px;width: 122px;height: 164px;padding: 14px 13px 0;margin-top: 1px;font-size: 16px;}
+.header-t-r ul li div.wx img:last-child{width: 14px;height: 11px;position: absolute;top:-11px;right: 11px;}
+.header-t-r ul li div.wx img{width: 120px;height: 120px;}
+
+.header-b{}
+
+.header-b-c-t ul li{background: #ddd;padding:0 10px;}
+.header-b-c-t ul li:last-child{display: none;}
+.header-b-c-t div{}
+.header-b-c-t div input{width: 280px;border: 0;padding: 2px 10px;}
+.header-b-c-t a{background: orange;text-align: center;width: 76px;text-decoration: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
