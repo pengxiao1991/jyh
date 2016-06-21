@@ -68,14 +68,14 @@
 	});
 	//窗口的滚动条的滚动事件
 	$(window).on("scroll",function(){
-		if ($(this).scrollTop()<=400) {
+		if ($(this).scrollTop()<=200) {
 			$("#footer .fix a:gt(1)").css({"display":"none"}).animate({"opacity":0},100);
 		}
 		else{
 			$("#footer .fix a:gt(1)").css({"display":"block"}).animate({"opacity":1},100);
 		}
 	});
-	//$(window).trigger("scroll");
+	$(window).trigger("scroll");
 })()
 
 
