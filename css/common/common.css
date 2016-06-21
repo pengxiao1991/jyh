@@ -1,51 +1,520 @@
 /*头部样式*/
-#header{}
-.header-t{background: #E5E5E5;height: 30px;line-height: 30px;}
-.header-t .margin{}
-.header-t a{color: #666666;}
-.header-t a:hover{color: #dc0f50;text-decoration: underline;}
-.header-t-r ul{}
-.header-t-r ul li{color: #666;margin-right: 18px;margin-left: 8px;}
-.header-t-r ul li span{color: #DC0F50;}
-.header-t-r ul li.iphone{position: relative;}
-.header-t-r ul li.wx{position: relative;}
-.header-t-r ul li span.iphone{background: url(../../img/iphone.png);width: 8px;height: 12px;display: inline-block;vertical-align: middle;}
-.header-t-r ul li span.wx{background: url(../../img/wx.png);width: 15px;height: 12px;display: inline-block;vertical-align: middle;}
-.header-t-r ul li div.iphone{z-index:1;background:white;text-align: center;display: none;border: 1px solid #E5E5E5;position: absolute;right: 0;width: 122px;height: 164px;padding: 14px 13px 0;margin-top: 1px;font-size: 16px;}
-.header-t-r ul li div.iphone img:last-child{width: 14px;height: 11px;position: absolute;top:-11px;right: 11px;}
-.header-t-r ul li div.iphone img{width: 120px;height: 120px;}
-.header-t-r ul li div.wx{z-index:1;background:white;text-align: center;display: none;border: 1px solid #E5E5E5;position: absolute;right: 10px;width: 122px;height: 164px;padding: 14px 13px 0;margin-top: 1px;font-size: 16px;}
-.header-t-r ul li div.wx img:last-child{width: 14px;height: 11px;position: absolute;top:-11px;right: 11px;}
-.header-t-r ul li div.wx img{width: 120px;height: 120px;}
 
-.header-b{height: 130px;}
-.header-b-l{}
-.header-b-l a{display: block;margin-top: 40px;}
-.header-b-c{width: 500px;font-size: 14px;margin-top: 32px;margin-left: 114px;}
-.header-b-c-t{border: 1px solid #dc0f50;}
-.header-b-c-t ul li{background: #ddd;padding:0 10px;line-height: 42px;height: 42px;}
-.header-b-c-t ul li:last-child{display:none ;position: absolute;}
-.header-b-c-t div{height: 42px;}
-.header-b-c-t div input{width: 330px;border: 0;padding: 2px 10px;height: 38px;}
-.header-b-c-t a{color:white;line-height: 42px;height: 42px;background: #dc0f50;text-align: center;width: 100px;text-decoration: none;}
-.header-b-c-b{}
-.header-b-c-b ul{margin-top: 12px;}
-.header-b-c-b ul li{float: left;margin-right: 15px;}
-.header-b-c-b ul li:first-child{margin-left: 6px;}
-.header-b-c-b ul li a{font-size: 14px;color:#999999;}
-.header-b-c-b ul li a:hover{font-size: 14px;color:#dc0f50;}
-.header-b-c-b ul li:first-child a{color: #dc0f50;}
-.header-b-r{font-size: 14px;margin: 32px 0 0 156px;position: relative;}
-.header-b-r a{display: block;width: 120px;height: 42px;border: 1px solid #E5E5E5;line-height: 42px;}
-.header-b-r a span:first-child{display: inline-block;width: 20px;height: 20px;background:url(../../img/car_icon.png);vertical-align: middle;margin: 0 6px;}
-.header-b-r a span:last-child{position: absolute;width: 18px;height: 18px;line-height: 18px;background: #dc0f50;text-align: center;color: white;border-radius: 50%;top: -8px;right: -8px;}
-.header-b-r div{color:#999999;background:white;right:0;margin-top:1px;display: none;position: absolute;width: 306px;height: 56px;border: 1px solid #E5E5E5;line-height: 56px;}
-.header-b-r div span:first-child{display: inline-block;width: 34px;height: 32px;vertical-align: middle;background: url(../../img/car.png);margin: 0 10px 0 12px;}
-.header-b-r a span{color:black;}
-.header-b-r div img{width: 14px;height: 11px;position: absolute;top:-11px;right: 55px;}
+body {
+	font: 14px/22px "microsoft yahei";
+}
+
+#header {}
+
+.header-t {
+	background: #E5E5E5;
+	height: 30px;
+	line-height: 30px;
+}
+
+.header-t .margin {}
+
+.header-t a {
+	color: #666666;
+}
+
+.header-t a:hover {
+	color: #dc0f50;
+	text-decoration: underline;
+}
+
+.header-t-r ul {}
+
+.header-t-r ul li {
+	color: #666;
+	margin-right: 18px;
+	margin-left: 8px;
+}
+
+.header-t-r ul li span {
+	color: #DC0F50;
+}
+
+.header-t-r ul li.iphone {
+	position: relative;
+}
+
+.header-t-r ul li.wx {
+	position: relative;
+}
+
+.header-t-r ul li span.iphone {
+	background: url(../../img/iphone.png);
+	width: 8px;
+	height: 12px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.header-t-r ul li span.wx {
+	background: url(../../img/wx.png);
+	width: 15px;
+	height: 12px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.header-t-r ul li div.iphone {
+	z-index: 1;
+	background: white;
+	text-align: center;
+	display: none;
+	border: 1px solid #E5E5E5;
+	position: absolute;
+	right: 0;
+	width: 122px;
+	height: 164px;
+	padding: 14px 13px 0;
+	margin-top: 1px;
+	font-size: 16px;
+}
+
+.header-t-r ul li div.iphone img:last-child {
+	width: 14px;
+	height: 11px;
+	position: absolute;
+	top: -11px;
+	right: 11px;
+}
+
+.header-t-r ul li div.iphone img {
+	width: 120px;
+	height: 120px;
+}
+
+.header-t-r ul li div.wx {
+	z-index: 1;
+	background: white;
+	text-align: center;
+	display: none;
+	border: 1px solid #E5E5E5;
+	position: absolute;
+	right: 10px;
+	width: 122px;
+	height: 164px;
+	padding: 14px 13px 0;
+	margin-top: 1px;
+	font-size: 16px;
+}
+
+.header-t-r ul li div.wx img:last-child {
+	width: 14px;
+	height: 11px;
+	position: absolute;
+	top: -11px;
+	right: 11px;
+}
+
+.header-t-r ul li div.wx img {
+	width: 120px;
+	height: 120px;
+}
+
+.header-b {
+	height: 130px;
+}
+
+.header-b-l {}
+
+.header-b-l a {
+	display: block;
+	margin-top: 40px;
+}
+
+.header-b-c {
+	width: 500px;
+	font-size: 14px;
+	margin-top: 32px;
+	margin-left: 114px;
+}
+
+.header-b-c-t {
+	border: 1px solid #dc0f50;
+}
+
+.header-b-c-t ul li {
+	background: #ddd;
+	padding: 0 10px;
+	line-height: 42px;
+	height: 42px;
+}
+
+.header-b-c-t ul li:last-child {
+	display: none;
+	position: absolute;
+}
+
+.header-b-c-t div {
+	height: 42px;
+}
+
+.header-b-c-t div input {
+	width: 330px;
+	border: 0;
+	padding: 2px 10px;
+	height: 38px;
+}
+
+.header-b-c-t a {
+	color: white;
+	line-height: 42px;
+	height: 42px;
+	background: #dc0f50;
+	text-align: center;
+	width: 100px;
+	text-decoration: none;
+}
+
+.header-b-c-t a:hover {
+	opacity: 0.8;
+}
+
+.header-b-c-b {}
+
+.header-b-c-b ul {
+	margin-top: 12px;
+}
+
+.header-b-c-b ul li {
+	float: left;
+	margin-right: 15px;
+}
+
+.header-b-c-b ul li:first-child {
+	margin-left: 6px;
+}
+
+.header-b-c-b ul li a {
+	font-size: 14px;
+	color: #999999;
+}
+
+.header-b-c-b ul li a:hover {
+	font-size: 14px;
+	color: #dc0f50;
+}
+
+.header-b-c-b ul li:first-child a {
+	color: #dc0f50;
+}
+
+.header-b-r {
+	font-size: 14px;
+	margin: 32px 0 0 156px;
+	position: relative;
+}
+
+.header-b-r a {
+	display: block;
+	width: 120px;
+	height: 42px;
+	border: 1px solid #E5E5E5;
+	line-height: 42px;
+}
+
+.header-b-r a span:first-child {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../../img/car_icon.png);
+	vertical-align: middle;
+	margin: 0 6px;
+}
+
+.header-b-r a span:last-child {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	background: #dc0f50;
+	text-align: center;
+	color: white;
+	border-radius: 50%;
+	top: -8px;
+	right: -8px;
+}
+
+.header-b-r div {
+	color: #999999;
+	background: white;
+	right: 0;
+	margin-top: 1px;
+	display: none;
+	position: absolute;
+	width: 306px;
+	height: 56px;
+	border: 1px solid #E5E5E5;
+	line-height: 56px;
+}
+
+.header-b-r div span:first-child {
+	display: inline-block;
+	width: 34px;
+	height: 32px;
+	vertical-align: middle;
+	background: url(../../img/car.png);
+	margin: 0 10px 0 12px;
+}
+
+.header-b-r a span {
+	color: black;
+}
+
+.header-b-r div img {
+	width: 14px;
+	height: 11px;
+	position: absolute;
+	top: -11px;
+	right: 55px;
+}
 
 
+/*尾部样式*/
 
+#footer {}
 
+.footer-t {}
 
+.footer-t ul {
+	margin: 20px 0 45px 0;
+}
 
+.footer-t ul li {
+	padding: 0 25px 0 82px;
+	border-right: 1px solid #d6d6d6;
+	height: 54px;
+	background: url(../../img/warrant_icon.png) no-repeat 15px 0;
+}
+
+.footer-t ul li.er {
+	background-position: 15px -55px;
+}
+
+.footer-t ul li.san {
+	background-position: 15px -109px;
+}
+
+.footer-t ul li.si {
+	background-position: 15px -164px;
+}
+
+.footer-t ul li:last-child {
+	padding: 0 25px 0 82px;
+	border: 0;
+	height: 54px;
+	background: url(../../img/warrant_icon.png) no-repeat 15px -219px;
+}
+
+.footer-t ul li p:first-child {
+	padding-top: 5px;
+	line-height: 22px;
+	font-size: 16px;
+	color: #333;
+}
+
+.footer-t ul li p:last-child {
+	line-height: 18px;
+	font-size: 12px;
+	color: #999;
+}
+
+.footer-m {}
+
+.footer-m ul {
+	padding-left: 78px;
+}
+
+.footer-m ul li {
+	width: 15%;
+}
+
+.footer-m ul li h4 {
+	display: inline;
+	color: #666;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.footer-m ul li h4:hover {
+	color: #DC0F50;
+}
+
+.footer-m ul li a {
+	display: block;
+	color: #999999;
+	line-height: 20px;
+}
+
+.footer-m ul li a:hover {
+	color: #DC0F50;
+}
+
+.footer-m ul li:last-child {
+	width: 20%;
+	margin-left: 20px;
+	background: url(../../img/mobile.png) no-repeat 5px 97%;
+}
+
+.footer-m ul li:last-child div {
+	width: 79px;
+	display: inline-block;
+	margin-right: 26px;
+}
+
+.footer-m ul li:last-child div img {
+	width: 100%;
+}
+
+.footer-m ul li:last-child div p {
+	text-align: center;
+	line-height: 25px;
+	font-size: 12px;
+	color: #666;
+	font-weight: bold;
+}
+
+.footer-m ul li:last-child span {
+	line-height: 26px;
+	display: block;
+	font-size: 20px;
+	color: #666;
+	font-weight: bold;
+	padding-left: 44px;
+}
+
+.footer-m ul li:last-child span:last-child {
+	display: block;
+	font-size: 12px;
+	color: #999;
+	line-height: 14px;
+	margin-top: -3px;
+	font-weight: normal;
+}
+
+.footer-b {
+	background: #333333;
+	margin-top: 25px;
+}
+
+.footer-b .margin {
+	padding: 10px 0;
+}
+
+.footer-b p {
+	line-height: 26px;
+	color: #999;
+	font-size: 12px;
+	padding: 0 5px;
+}
+
+.footer-b p a {
+	line-height: 26px;
+	color: #999;
+	font-size: 12px;
+}
+
+.footer-b p a:hover {
+	color: white;
+}
+
+#footer .fix {
+	position: fixed;
+	right: 10px;
+	top: 40%;
+}
+
+#footer .fix a {
+	color: black;
+	position: relative;
+	margin-bottom: 10px;
+	width: 60px;
+	height: 60px;
+	display: block;
+	background: url(../../img/icon_bg.png) 0 0;
+}
+
+#footer .fix a.er {
+	background-position: 0 -70px;
+	
+}
+
+#footer .fix a:last-child {
+	background-position: 0 -140px;
+	display: none;
+	opacity: 0;
+}
+
+#footer .fix a:first-child:hover {
+	background: url(../../img/icon_bg2.png);
+}
+
+#footer .fix a.er:hover {
+	background: url(../../img/icon_bg2.png) 0 -70px;
+}
+
+#footer .fix a:last-child:hover {
+	background: url(../../img/icon_bg2.png) 0 -140px;
+}
+
+#footer .fix a div.iphone {
+	z-index: 1;
+	background: white;
+	text-align: center;
+	display: none;
+	border: 1px solid #E5E5E5;
+	position: absolute;
+	right: 76px;
+	width: 122px;
+	height: 164px;
+	padding: 14px 13px 0;
+	margin-top: 1px;
+	font-size: 16px;
+}
+
+#footer .fix a div.iphone img {
+	width: 120px;
+	height: 120px;
+}
+
+#footer .fix a div.iphone img:last-child {
+	width: 14px;
+	height: 11px;
+	position: absolute;
+	top: 28px;
+	right: -14px;
+}
+
+#footer .fix a div.wx {
+	z-index: 1;
+	background: white;
+	text-align: center;
+	display: none;
+	border: 1px solid #E5E5E5;
+	position: absolute;
+	right: 76px;
+	width: 122px;
+	height: 164px;
+	padding: 14px 13px 0;
+	margin-top: 1px;
+	font-size: 16px;
+}
+
+#footer .fix a div.wx img {
+	width: 120px;
+	height: 120px;
+}
+
+#footer .fix a div.wx img:last-child {
+	width: 14px;
+	height: 11px;
+	position: absolute;
+	top: 30px;
+	right: -14px;
+}
+#content{height: 2000px;}

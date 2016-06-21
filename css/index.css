@@ -1,3 +1,227 @@
+#content{}
+.banner{}
+.banner-t{
+	border-bottom: 2px solid #dc0f50;
+}
+.banner-t-l{
+	
+	display: block;
+	width: 193px;
+	cursor: pointer;
+	/*border-bottom: 2px solid #dc0f50;*/
+	margin-right: 30px;
+	height: 40px;
+	overflow: hidden;
+	line-height: 40px;
+	float: left;
+	background: #333;
+	color: #fff;
+	padding: 0 20px;
+
+}
+.banner-t-r{}
+.banner-t-r ul{
+	
+	overflow: hidden;
+	float: left;
+	width: 900px;
+	height: 40px;
+
+}
+.banner-t-r ul li{
+	
+	overflow: hidden;
+	padding: 0 16px 0 24px;
+	line-height: 40px;
+	height: 40px;
+	float: left;
+
+}
+.banner-t-r ul li a{
+	font-size: 18px;
+	color: black;
+	
+}
+.banner-t-r ul li a:hover{
+	color: #DC0F50;
+}
+
+.banner-t-r ul li:first-child a{
+	font-size: 18px;
+	color: #DC0F50;
+	
+}
+.banner-b{}
+.banner-b-l{}
+.banner-b-l ul{padding-bottom: 116px;border: 1px solid #E5E5E5;background: #FFFFFF;border-top: 0;} 
+.banner-b-l ul li{position: relative;} 
+.banner-b-l ul li div{
+	display: none;
+	position: absolute;
+	left: 234px;
+	width: 200px;
+	background-color: #fff;
+	z-index: 5;
+	padding: 0 0 10px 15px;
+	top: 0px;
+	
+	}
+.banner-b-l ul li div a{
+	color: #333333;
+}
+.banner-b-l ul li div a:hover{
+	color: #DC0F50;
+}
+.banner-b-l a.erji{
+	display: block;
+	padding-left: 20px;
+	width: 213px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #333;
+}
+.banner-b-l a.erji:hover{
+	color: white;
+	background: #DC0F50;
+}
+.banner-b-c{margin-left: 6px;}
+.banner-b-c-t{width: 714px;height: 382px;}
+.banner-b-c-t span{border-radius: 50%;color: white;background: #333333;}
+.banner-b-c-t span.on{background: #DC0F50;}
+.banner-b-c-b{}
+.banner-b-c-b img{width: 355px;display: inline-block;}
+.banner-b-r{}
+.banner-b-r-t{
+	margin-top: 20px;
+	text-align: center;
+	border: 1px solid #e5e5e5;
+	width: 230px;
+	margin-bottom: 10px;
+}
+.banner-b-r-t span{width: 40px;height: 40px;display: inline-block;background: url(../img/dome_07.png) ;}
+.banner-b-r-t p{
+	display: block;
+	line-height: 24px;
+	font-size: 12px;
+	color: #333;
+}
+.banner-b-r-t a.denglu {
+	display: block;
+	text-align: center;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	background: #dc0f50;
+	color: #fff;
+	font-size: 16px;
+	margin: 0 auto;
+}
+.banner-b-r-t a:last-child{
+	position: relative;
+	right:-70px;
+	color: #333;
+	font-size: 12px;
+}
+.banner-b-r-t a:last-child:hover{
+	color: #DC0F50;
+}
+.banner-b-r-m{
+	padding-left: 13px;
+	overflow: hidden;
+	height: 141px;
+	border: 1px solid #e5e5e5;
+	margin-bottom: 10px;
+	
+
+}
+.banner-b-r-m p{
+	
+	
+	padding: 18px 0 18px 50px;
+	overflow: hidden;
+	height: 30px;
+	line-height: 30px;
+	font-size: 24px;
+	color: #666;
+	font-weight: bold;
+	background: url(../img/mobile.png) no-repeat 10px center;
+}
+.banner-b-r-m a {
+	margin-right: 15px;
+	display: inline-block;
+	line-height: 15px;
+	color: #333;
+	text-align: center;
+	font-size: 12px;
+
+}
+.banner-b-r-m a.yi{
+	margin-left: 15px;
+}
+.banner-b-r-m a span{
+	
+	display: block;
+	width: 26px;
+	height: 20px;
+	background: url(../img/icon_2.png) no-repeat;
+	margin: 2px auto;
+	margin-bottom: 5px;
+
+}
+.banner-b-r-m a.er span{
+	background-position: 0 -20px;
+}
+.banner-b-r-m a.san span{
+	background-position: 0 -40px;
+}
+.banner-b-r-m a:last-child span{
+	background-position: 0 -60px;
+}
+.banner-b-r-m a:hover{
+	color: #DC0F50;
+}
+.banner-b-r-m a.yi:hover span{
+	background-position: right 0;
+	
+}
+.banner-b-r-m a.er:hover span{
+	background-position: right -20px;
+	
+}
+.banner-b-r-m a.san:hover span{
+	background-position: right -40px;
+	
+}
+.banner-b-r-m a:last-child:hover span{
+	background-position: right -60px;
+	
+}
+.banner-b-r-b{border: 1px solid #E5E5E5;}
+.banner-b-r-b p{
+	height: 40px;
+	line-height: 40px;
+	overflow: hidden;
+	background: #dc0f50;
+	padding: 0 12px;
+	color: #fff;
+	font-size: 16px;
+}
+.banner-b-r-b a{width: 110px;display: inline-block;margin: 24px 0;}
+.banner-b-r-b a{margin-left: 2px;}
+.banner-b-r-b a img{width: 100%;}
+.banner-b-r-b a span{
+	display: block;
+	margin-top: 10px;
+	background: #dc0f50;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	font-size: 12px;
+	font-size: 12px;
+	color: #fff;
+}
+
 
 
 
