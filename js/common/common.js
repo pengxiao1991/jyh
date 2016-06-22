@@ -10,14 +10,14 @@
 	});
 	//顶部导航的二维码的hover事件
 	$("li.iphone",header).hover(function(){
-		$("div.iphone").toggle();
+		$("div.iphone",header).toggle();
 	},function(){
-		$("div.iphone").toggle();
+		$("div.iphone",header).toggle();
 	});
 	$("li.wx",header).hover(function(){
-		$("div.wx").toggle();
+		$("div.wx",header).toggle();
 	},function(){
-		$("div.wx").toggle();
+		$("div.wx",header).toggle();
 	});
 	//搜索框前的搜索类别的hover和click事件
 	$(".header-b-c-t ul").hover(function(){
@@ -68,7 +68,7 @@
 	});
 	//窗口的滚动条的滚动事件
 	$(window).on("scroll",function(){
-		if ($(this).scrollTop()<=200) {
+		if ($(this).scrollTop()<=400) {
 			$("#footer .fix a:gt(1)").css({"display":"none"}).animate({"opacity":0},100);
 		}
 		else{
@@ -76,6 +76,10 @@
 		}
 	});
 	$(window).trigger("scroll");
+	
+	
+	
+	
 })()
 
 

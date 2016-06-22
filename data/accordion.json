@@ -1,0 +1,10 @@
+{
+	"0":["../img/accordion1.jpg","../img/accordion2.jpg","../img/accordion3.jpg","../img/accordion4.jpg","../img/accordion5.jpg"],
+	"1":["../img/accordion2.jpg","../img/accordion3.jpg","../img/accordion4.jpg","../img/accordion5.jpg","../img/accordion1.jpg"],
+	"2":["../img/accordion3.jpg","../img/accordion4.jpg","../img/accordion5.jpg","../img/accordion1.jpg","../img/accordion2.jpg"],
+	"3":["../img/accordion4.jpg","../img/accordion5.jpg","../img/accordion1.jpg","../img/accordion2.jpg","../img/accordion3.jpg"],
+	"4":["../img/accordion5.jpg","../img/accordion1.jpg","../img/accordion2.jpg","../img/accordion3.jpg","../img/accordion4.jpg"]
+
+
+
+}

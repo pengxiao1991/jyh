@@ -1,0 +1,101 @@
+#content {}
+
+.banner {}
+
+.banner-t {
+	border-bottom: 2px solid #dc0f50;
+}
+
+.banner-t-l {
+	display: block;
+	width: 193px;
+	cursor: pointer;
+	/*border-bottom: 2px solid #dc0f50;*/
+	margin-right: 30px;
+	height: 40px;
+	overflow: hidden;
+	line-height: 40px;
+	float: left;
+	background: #333;
+	color: #fff;
+	padding: 0 20px;
+}
+
+.banner-t-r {}
+
+.banner-t-r ul {
+	overflow: hidden;
+	float: left;
+	width: 900px;
+	height: 40px;
+}
+
+.banner-t-r ul li {
+	overflow: hidden;
+	padding: 0 16px 0 24px;
+	line-height: 40px;
+	height: 40px;
+	float: left;
+}
+
+.banner-t-r ul li a {
+	font-size: 18px;
+	color: black;
+}
+
+.banner-t-r ul li a:hover {
+	color: #DC0F50;
+}
+
+.banner-t-r ul li:first-child a {
+	font-size: 18px;
+	color: #DC0F50;
+}
+.banner-b {}
+
+.banner-b-l {}
+
+.banner-b-l ul {
+	padding-bottom: 116px;
+	border: 1px solid #E5E5E5;
+	background: #FFFFFF;
+	border-top: 0;
+}
+
+.banner-b-l ul li {
+	position: relative;
+}
+
+.banner-b-l ul li div {
+	display: none;
+	position: absolute;
+	left: 234px;
+	width: 200px;
+	background-color: #fff;
+	z-index: 5;
+	padding: 0 0 10px 15px;
+	top: 0px;
+}
+
+.banner-b-l ul li div a {
+	color: #333333;
+}
+
+.banner-b-l ul li div a:hover {
+	color: #DC0F50;
+}
+
+.banner-b-l a.erji {
+	display: block;
+	padding-left: 20px;
+	width: 213px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #333;
+}
+
+.banner-b-l a.erji:hover {
+	color: white;
+	background: #DC0F50;
+}
