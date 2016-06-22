@@ -1,0 +1,107 @@
+{
+	"tv":[{
+		"src":"../img/can.jpg",
+		"description":"CAN看尚 C49S 49英寸 超清网络智能平板电视 蓝影UI系统 配底座",
+		"price":"￥1899"
+	},{
+		"src":"../img/tcl.png",
+		"description":"TCL D55A620U 55英寸 观影王4K版 同步院线 十四核 安卓智能电视机(黑)",
+		"price":"￥3599"
+	},{
+		"src":"../img/sanxing.png",
+		"description":"三星（SAMSUNG）UA48J5088ACXXZ 48英寸 全高清电视 黑色",
+		"price":"￥2549"
+	},{
+		"src":"../img/sanxing.png",
+		"description":"三星（SAMSUNG）UA48J5088ACXXZ 48英寸 全高清电视 黑色",
+		"price":"￥2549"
+	},{
+		"src":"../img/sanxing.png",
+		"description":"三星（SAMSUNG）UA48J5088ACXXZ 48英寸 全高清电视 黑色",
+		"price":"￥2549"
+	}],
+	"airc":[{
+		"src":"../img/changhong.jpg",
+		"description":"长虹（CHANGHONG）65U3C 65英寸双64位4K超高清HDR智能平板液晶电视（浅棕银）",
+		"price":"￥4999"
+	},{
+		"src":"../img/changhong.jpg",
+		"description":"长虹（CHANGHONG）65U3C 65英寸双64位4K超高清HDR智能平板液晶电视（浅棕银）",
+		"price":"￥4999"
+	},{
+		"src":"../img/changhong.jpg",
+		"description":"长虹（CHANGHONG）65U3C 65英寸双64位4K超高清HDR智能平板液晶电视（浅棕银）",
+		"price":"￥4999"
+	},{
+		"src":"../img/changhong.jpg",
+		"description":"长虹（CHANGHONG）65U3C 65英寸双64位4K超高清HDR智能平板液晶电视（浅棕银）",
+		"price":"￥4999"
+	},{
+		"src":"../img/changhong.jpg",
+		"description":"长虹（CHANGHONG）65U3C 65英寸双64位4K超高清HDR智能平板液晶电视（浅棕银）",
+		"price":"￥4999"
+	}],
+	"wash":[{
+		"src":"../img/can.jpg",
+		"description":"CAN看尚 C49S 49英寸 超清网络智能平板电视 蓝影UI系统 配底座",
+		"price":"￥1899"
+	},{
+		"src":"../img/tcl.png",
+		"description":"TCL D55A620U 55英寸 观影王4K版 同步院线 十四核 安卓智能电视机(黑)",
+		"price":"￥3599"
+	},{
+		"src":"../img/sanxing.png",
+		"description":"三星（SAMSUNG）UA48J5088ACXXZ 48英寸 全高清电视 黑色",
+		"price":"￥2549"
+	},{
+		"src":"../img/sanxing.png",
+		"description":"三星（SAMSUNG）UA48J5088ACXXZ 48英寸 全高清电视 黑色",
+		"price":"￥2549"
+	},{
+		"src":"../img/sanxing.png",
+		"description":"三星（SAMSUNG）UA48J5088ACXXZ 48英寸 全高清电视 黑色",
+		"price":"￥2549"
+	}],
+	"cook":[{
+		"src":"../img/changhong.jpg",
+		"description":"长虹（CHANGHONG）65U3C 65英寸双64位4K超高清HDR智能平板液晶电视（浅棕银）",
+		"price":"￥4999"
+	},{
+		"src":"../img/changhong.jpg",
+		"description":"长虹（CHANGHONG）65U3C 65英寸双64位4K超高清HDR智能平板液晶电视（浅棕银）",
+		"price":"￥4999"
+	},{
+		"src":"../img/changhong.jpg",
+		"description":"长虹（CHANGHONG）65U3C 65英寸双64位4K超高清HDR智能平板液晶电视（浅棕银）",
+		"price":"￥4999"
+	},{
+		"src":"../img/changhong.jpg",
+		"description":"长虹（CHANGHONG）65U3C 65英寸双64位4K超高清HDR智能平板液晶电视（浅棕银）",
+		"price":"￥4999"
+	},{
+		"src":"../img/changhong.jpg",
+		"description":"长虹（CHANGHONG）65U3C 65英寸双64位4K超高清HDR智能平板液晶电视（浅棕银）",
+		"price":"￥4999"
+	}],
+	"icebox":[{
+		"src":"../img/can.jpg",
+		"description":"CAN看尚 C49S 49英寸 超清网络智能平板电视 蓝影UI系统 配底座",
+		"price":"￥1899"
+	},{
+		"src":"../img/tcl.png",
+		"description":"TCL D55A620U 55英寸 观影王4K版 同步院线 十四核 安卓智能电视机(黑)",
+		"price":"￥3599"
+	},{
+		"src":"../img/sanxing.png",
+		"description":"三星（SAMSUNG）UA48J5088ACXXZ 48英寸 全高清电视 黑色",
+		"price":"￥2549"
+	},{
+		"src":"../img/sanxing.png",
+		"description":"三星（SAMSUNG）UA48J5088ACXXZ 48英寸 全高清电视 黑色",
+		"price":"￥2549"
+	},{
+		"src":"../img/sanxing.png",
+		"description":"三星（SAMSUNG）UA48J5088ACXXZ 48英寸 全高清电视 黑色",
+		"price":"￥2549"
+	}]
+}
