@@ -1,8 +1,8 @@
-;
+﻿;
 (function($){
 	//封装一个函数，完成增加和修改cookie的功能
 	function setCookie(name,value,expires,path,domain,secure){
-		var dec = encodeURIComponent(name)+"="+value+";";
+		var dec = encodeURIComponent(name)+"="+encodeURIComponent(value)+";";
 		if(expires){
 			var dt = new Date();
 			dt.setTime(dt.getTime()+expires);
@@ -27,11 +27,12 @@
 	//封装一个函数，完成获取cookie的功能,返回value值，是一个字符串，如果没有找到，返还空字符串
 	function getCookie(name){
 		
-		var cookies = document.cookie.split("; ");
+		var cookies = (document.cookie).split("; ");
 		
 		for(var i = 0;i<cookies.length;i++){
 			if(cookies[i].split("=")[0]==encodeURIComponent(name)){
-				return cookies[i].split("=")[1];}
+				return decodeURIComponent(cookies[i].split("=")[1]);
+			}
 		}
 		return "";
 

@@ -73,13 +73,13 @@ $(function(){
 	//从json中获得热销数据
 	function getHotData(url,className){
 		$.getJSON(url,function(data){
-		$.each(data, function(index,value) {
-			var $li = $("."+className+" .floor-b-r li").eq(index);
-			$li.find("img")[0].src = value.src;
-			$li.find("p")[0].innerHTML = value.description;
-			$li.find("span:last")[0].innerHTML = value.price;
+			$.each(data, function(index,value) {
+				var $li = $("."+className+" .floor-b-r li").eq(index);
+				$li.find("img")[0].src = value.src;
+				$li.find("p")[0].innerHTML = value.description;
+				$li.find("span:last")[0].innerHTML = value.price;
+			});
 		});
-	});
 	}
 	//手风琴部分
 	$.getJSON("../data/accordion.json",function(data){
