@@ -1,0 +1,96 @@
+#content{
+	border-top: 2px solid #DC0F50;
+	padding-top: 80px;
+	padding-bottom: 124px;
+}
+.content-l{margin-left: 70px;}
+.content-r{width: 450px;margin-left: 166px;}
+.content-r-t{}
+.content-r-t span{
+	margin: 0 76px;
+	display: inline;
+	width: 50%;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	padding-bottom: 7px;
+	cursor: pointer;
+}
+.content-r-t span.on{
+	color: #DC0F50;
+	border-bottom: 2px solid #DC0F50;
+}
+
+
+
+.content-r-b{}
+.content-r-b form{}
+.content-r-b form fieldset{
+		padding: 12px 70px 60px 70px;
+		border: 0;
+		border: 1px solid #D6D6D6;
+	}
+.content-r-b form fieldset p{
+	visibility: hidden;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	color: #DC0F50;
+	background: url(../img/error_bg.png) no-repeat 10px center;
+	padding-left: 30px;
+}
+.content-r-b form fieldset p.error{
+	visibility: visible;
+}
+.content-r-b form fieldset input:nth-child(2){
+	width: 240px;
+	background: url(../img/icon01.png) no-repeat 10px center;
+	border: 1px solid #D6D6D6;
+	padding-left: 60px;
+	line-height: 38px;
+	height: 38px;
+}
+.content-r-b form fieldset input:nth-child(4){
+	width: 240px;
+	background: url(../img/icon02.png) no-repeat 10px center;
+	border: 1px solid #D6D6D6;
+	padding-left: 60px;
+	line-height: 38px;
+	height: 38px;
+	margin-bottom: 6px;
+}
+.content-r-b form fieldset input:nth-child(4).error{
+	border-color: #DC0F50;
+}
+.content-r-b form fieldset input:nth-child(2).error{
+	border-color: #DC0F50;
+}
+.content-r-b form fieldset label{
+	color: #666666;
+}
+.content-r-b form fieldset label+a{
+	margin-left: 10px;
+	color: #666666;
+}
+.content-r-b form fieldset a+a{
+	margin-left: 59px;
+	color: #666666;
+}
+.content-r-b form fieldset a:hover{
+	color: #DC0F50;
+}
+.content-r-b form fieldset button{
+	width: 300px;
+	background: #DC0F50;
+	color: white;
+	height: 40px;
+	line-height: 40px;
+	border: 0;
+	font-size: 16px;
+	margin-top: 40px;
+	cursor: pointer;
+}
+.content-r-b form fieldset button:hover{
+	opacity: 0.8;
+}

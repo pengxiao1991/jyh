@@ -1,4 +1,5 @@
 //头部js
+//需要放在cookie插件后面
 (function () {
 	//载入头部html结构内容
 	$.ajax({
@@ -69,10 +70,10 @@
 	//窗口的滚动条的滚动事件
 	$(window).on("scroll",function(){
 		if ($(this).scrollTop()<=400) {
-			$("#footer .fix a:gt(1)").css({"display":"none"}).animate({"opacity":0},100);
+			$("#footer .fix a:gt(1)").css({"display":"none"}).stop().animate({"opacity":0},100);
 		}
 		else{
-			$("#footer .fix a:gt(1)").css({"display":"block"}).animate({"opacity":1},100);
+			$("#footer .fix a:gt(1)").css({"display":"block"}).stop().animate({"opacity":1},100);
 		}
 	});
 	$(window).trigger("scroll");
