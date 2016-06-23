@@ -4,7 +4,9 @@ body {
 	font: 14px/22px "microsoft yahei";
 }
 
-#header {}
+#header {
+	font-size: 12px;
+}
 
 .header-t {
 	background: #E5E5E5;
@@ -276,7 +278,9 @@ body {
 
 /*尾部样式*/
 
-#footer {}
+#footer {
+	font-size: 12px;
+}
 
 .footer-t {}
 

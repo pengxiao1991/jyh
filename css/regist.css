@@ -1,0 +1,99 @@
+#content{
+	border-top: 2px solid #DC0F50;
+	padding-top: 80px;
+}
+.content-l{
+	margin-left: 84px;
+	width: 600px;
+	
+}
+.content-l form{}
+.content-l form fieldset{
+	border: none;
+}
+.content-l form fieldset span:first-child{
+	display: inline-block;
+	width: 70px;
+	height: 38px;
+	line-height: 38px;
+	color: #666666;
+	text-align: right;
+}
+.content-l form fieldset i{
+	color: #DC0F50;
+	
+	
+}
+.content-l form fieldset input{
+	border: 1px solid #D6D6D6;
+	height: 38px;
+	line-height: 38px;
+	width: 290px;
+	margin-left: 14px;
+	padding-left: 14px;
+}
+.content-l form fieldset input.error{
+	border: 1px solid #e92d2f;
+}
+.content-l form fieldset span:last-child{
+	display: none;
+	width: 140px;
+	color: #e92d2f;
+	height: 38px;
+	
+	line-height: 38px;
+	padding-left: 30px;
+	background: url(../img/error_bg.png) no-repeat 10px center;
+}
+.content-l form fieldset span:last-child.error{
+	display: inline-block;
+}
+.content-l form fieldset:nth-child(2) span:last-child{
+	position: absolute;
+	line-height: normal;
+	height: 17px;
+}
+.content-l form fieldset:nth-child(4) input{
+	width: 178px;
+	border: 1px solid #D6D6D6;
+}
+.content-l form fieldset:nth-child(4) a{
+	width: 110px;
+	height: 40px;
+	display: inline-block;
+	color: white;
+	background: #DC0F50;
+	vertical-align: middle;
+	line-height: 40px;
+	text-align: center;
+}
+.content-l form fieldset:nth-child(4) a:hover{
+	opacity: 0.8;
+}
+.content-l form fieldset:last-child input:first-child{
+	width: auto;
+	vertical-align: middle;
+	outline: none;
+	margin-left: 24px;
+}
+.content-l form fieldset:last-child label{
+	display: inline-block;
+	vertical-align: middle;
+	color: #666666;
+}
+.content-l form fieldset:last-child input:last-child{
+	margin-left: 90px;
+	color: white;
+	background: #DC0F50;
+}
+.content-l>a{
+	margin-left: 282px;
+	color: #666666;
+	text-decoration: underline;
+}
+.content-l>a:hover{
+	opacity: 0.8;
+}
+.content-r{
+	margin-left: 22px;
+}
