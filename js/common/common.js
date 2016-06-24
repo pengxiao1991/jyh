@@ -9,6 +9,31 @@
 			$(header).html(data);
 		}
 	});
+	//判断是否是登录状态online或是下次自动登录状态next，优先使用登录状态online
+	var online = $.myGetCookie("online");
+	var value = $.myGetCookie("user")===""?"":JSON.parse($.myGetCookie("user"));
+	if (online!=="") {
+		loadUserInfo(value[0]);
+	}
+	else{
+		for (var i = 0; i < value.length; i++) {
+			
+			if (value[i].next==true&&confirm("是否使用账户："+value[i]["用户名"]+"来登录")) {
+				//交换当前登录的账户和第一个账户交换
+				var temp;
+				temp = value[0];
+				value[0] = value[i];
+				value[i] = temp;
+				//将注册信息存入cookie，修改当前处于在线状态的用户
+				$.mySetCookie("online",value[0]["用户名"]);
+				$.mySetCookie(name,JSON.stringify(value),70*24*3600*1000);
+				loadUserInfo(value[i]);
+				break;
+			}
+		}
+	}
+	
+	
 	//顶部导航的二维码的hover事件
 	$("li.iphone",header).hover(function(){
 		$("div.iphone",header).toggle();
@@ -46,6 +71,31 @@
 	});
 	
 })();
+function loadUserInfo(obj){
+	var str = "hi！ "+obj["用户名"].slice(0,3)+"****"+obj["用户名"].slice(-4);
+	//改变登录的用户名显示
+	$(".header-t-r ul li a").eq(1).text(str).css({"color":"#dc0f50"});
+	//改变原先为的注册导航
+	$(".header-t-r ul li a").eq(2).text("退出").one("click",function(e){
+		e.preventDefault();
+		
+		$.myRemoveCookie("online");
+		location.reload();
+	});
+	
+	//改变购物车的提示信息
+	$(".header-t-r ul li:eq(4)").css({"cursor":"pointer"}).click(function(){
+		
+		location.href = "../../jyh/html/shopCar.html";
+	}).find("span").text(obj.shopCar.length);
+	
+}
+
+
+
+
+
+
 
 //尾部js
 (function () {

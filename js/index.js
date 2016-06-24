@@ -6,11 +6,32 @@ $(function(){
 	},function(){
 		$(this).find("div").hide().prev().css({"background":"#fff","color":"#333"});
 	});
+	
 	//轮播图
 	$.getJSON("../data/carouselBanner.json",function(data){
 		
 		$(".banner-b-c-t").carouselBanner({"width":714,"height":382,"srcArr":data.src,"btnWidth":30,"btnHeight":60,"srcLeftBtn":"../img/leftbtn.jpg","srcRightBtn":"../img/rightbtn.jpg","navBtnWidth":16,"navBtnHeight":16,"navBtnMargin":10,"aHref":data.href});
 	});
+	//轮播图右侧部分的在有账户登录时会发生改变
+	if ($(".header-t-r ul li a:eq(1)").text()!=="请登录") {
+		$(".banner-b-r-t span").css({"marginTop":"20px"});
+		$(".banner-b-r-t").css({"background":"#dc0f50","marginTop":"10px"});
+		$(".banner-b-r-t p").text($(".header-t-r ul li a:eq(1)").text()).css({"color":"white","paddingBottom":"10px"});
+		$(".banner-b-r-t a").remove();
+		$("<div><b>待收货<br /><i>0</i></b><b>待发货<br /><i>0</i></b><b>待付款<br /><i>0</i></b></div>").appendTo(".banner-b-r-t");
+		
+		$(".banner-b-r-t div").css({
+			"height":"50px",
+			"background":"white",
+			"padding":"14px 0 7px 0"
+		}).find("b").css({
+			"width":"32%",
+			"height":"50px",
+			"borderRight":"1px solid #e5e5e5"
+		});
+		
+	}
+	
 	//onAir直播部分
 	//从json中获取商品信息
 	$.getJSON("../data/onAir.json",function(data){

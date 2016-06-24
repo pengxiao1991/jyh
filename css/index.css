@@ -136,7 +136,8 @@
 	width: 230px;
 	margin-bottom: 10px;
 }
-
+.banner-b-r-t b{display: inline-block;}
+.banner-b-r-t b i{}
 .banner-b-r-t span {
 	width: 40px;
 	height: 40px;

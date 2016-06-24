@@ -77,7 +77,7 @@
 				},3000);
 				
 				that.$element.hover(function(){
-					console.log("1");
+					
 					clearInterval(that.timer);
 				},function(){
 					that.timer = setInterval(function(){

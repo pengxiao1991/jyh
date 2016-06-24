@@ -14,7 +14,7 @@
 	height: 40px;
 	line-height: 40px;
 	font-size: 18px;
-	padding-bottom: 7px;
+	padding-bottom: 9px;
 	cursor: pointer;
 }
 .content-r-t span.on{
@@ -51,7 +51,7 @@
 	line-height: 38px;
 	height: 38px;
 }
-.content-r-b form fieldset input:nth-child(4){
+.content-r-b form:first-child fieldset input:nth-child(4){
 	width: 240px;
 	background: url(../img/icon02.png) no-repeat 10px center;
 	border: 1px solid #D6D6D6;
@@ -60,10 +60,10 @@
 	height: 38px;
 	margin-bottom: 6px;
 }
-.content-r-b form fieldset input:nth-child(4).error{
+.content-r-b form:first-child fieldset input:nth-child(4).error{
 	border-color: #DC0F50;
 }
-.content-r-b form fieldset input:nth-child(2).error{
+.content-r-b form:first-child fieldset input:nth-child(2).error{
 	border-color: #DC0F50;
 }
 .content-r-b form fieldset label{
@@ -93,4 +93,48 @@
 }
 .content-r-b form fieldset button:hover{
 	opacity: 0.8;
+}
+.content-r-b form{
+	display: none;
+}
+.content-r-b form.on{
+	display: block;
+}
+.content-r-b form:last-child fieldset p:first-child{
+	visibility: visible;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	color: #DC0F50;
+	background: url(../img/ling.png) no-repeat 10px center;
+	padding-left: 30px;
+}
+.content-r-b form:last-child fieldset i{
+	
+	font-size: 12px;
+	color: #666;
+	
+}
+.content-r-b form:last-child fieldset input:nth-child(3){
+	width: 150px;
+	background: url(../img/icon01.png) no-repeat 10px center;
+	border: 1px solid #D6D6D6;
+	padding-left: 60px;
+	line-height: 38px;
+	height: 38px;
+}
+.content-r-b form:last-child fieldset input:nth-child(6){
+	width: 240px;
+	background: url(../img/icon02.png) no-repeat 10px center;
+	border: 1px solid #D6D6D6;
+	padding-left: 60px;
+	line-height: 38px;
+	height: 38px;
+	margin-bottom: 6px;
+}
+.content-r-b form:last-child fieldset input:nth-child(4){
+	width: 90px;
+	height: 40px;
+	color: white;
+	background: #DC0F50;
 }
