@@ -90,7 +90,21 @@ $(function(){
 								//将注册信息存入cookie，修改当前处于在线状态的用户
 								$.mySetCookie("online",value[0]["用户名"]);
 								$.mySetCookie("user",JSON.stringify(value),70*24*3600*1000);
-								location.href = "index.html";
+								//遮罩层部分
+								//显示遮罩层
+								$(cover).show();
+								setTimeout(function(){
+									$(cover).find("i").text(2)
+								},1000);
+								setTimeout(function(){
+									$(cover).find("i").text(1)
+								},2000);
+								setTimeout(function(){
+									$(cover).find("i").text(0)
+								},3000);
+								setTimeout(function(){
+									location.href = "index.html";
+								},3100);
 								return;
 							}
 						}

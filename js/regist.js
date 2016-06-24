@@ -109,6 +109,9 @@ $(function(){
 				$.mySetCookie("online",cookieArr[0]["用户名"]);
 				$.mySetCookie("user",JSON.stringify(cookieArr),70*24*3600*1000);
 				
+				//遮罩层部分
+				//显示遮罩层
+				$(cover).show();
 				setTimeout(function(){
 					$(cover).find("i").text(2)
 				},1000);

@@ -27,4 +27,38 @@ $(function(){
 		$(this).addClass("on").siblings("li").removeClass("on");
 		$(".content-t-c img").attr({"src":$(this).find("img")[0].src});
 	});
+	
+	//吸顶效果,先复制商品详情的tab切换部分，在将其添加到窗口顶部,然后设置其样式
+	//再为复制品和源头部分注册点击事件
+	var $origin = $(".content-b-t");
+	var $clone = $origin.clone(true).appendTo("body").css({
+		"position":"fixed",
+		"top":0,
+		"display":"none",
+		"width":"100%",
+		"left":$origin.offset().left
+		
+	});
+	//原始部分的click事件
+	$("span",$origin).on("click",function(){
+		$(this).addClass("on").siblings("span").removeClass("on");
+		$("span",$clone).eq($(this).index()).addClass("on").siblings("span").removeClass("on");
+		$(".content-b-b div").eq($(this).index()).addClass("on").siblings("div").removeClass("on");
+	});
+	//副本部分的click事件
+	$("span",$clone).click(function(){
+				
+				$(window).scrollTop($origin.offset().top)
+				$origin.find("span").eq($(this).index()).click();
+		});
+		
+	//滚动条滚动事件，如果到了商品详情部分，显示吸顶部分，
+	$(window).on("scroll",function(){
+		if ($(this).scrollTop()>$origin.offset().top) {
+			$clone.show();
+		} else{
+			$clone.hide();
+		}
+	});
+	$(window).scroll();
 })

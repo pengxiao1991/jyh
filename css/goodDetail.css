@@ -256,7 +256,7 @@
 .content-t-r-b a+a{
 	
 	color: white;
-	padding: 12px 50px;
+	padding: 12px 50px 12px 70px;
 	background: #DC0F50 url(../img/news_car.png) no-repeat 20px center;
 	
 }
@@ -264,7 +264,7 @@
 	margin-top: 20px;
 	border: 1px solid #D6D6D6;
 }
-.content-b-t{border-bottom: 1px solid #D6D6D6;height: 38px;}
+.content-b-t{border-bottom: 1px solid #D6D6D6;height: 38px;background: white;}
 .content-b-t span{
 	margin-top: -1px;
 	border-bottom: 1px solid #D6D6D6;
