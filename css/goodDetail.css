@@ -1,14 +1,16 @@
-#content{}
-#content .margin>a{
+#content {}
+
+#content .margin>a {
 	font-size: 12px;
-	
 	line-height: 40px;
 	color: #666666;
 	margin-left: 16px;
 }
-#content .margin>a:hover{
+
+#content .margin>a:hover {
 	color: #DC0F50;
 }
+
 .banner-t {
 	border-bottom: 2px solid #dc0f50;
 }
@@ -27,12 +29,12 @@
 	color: #fff;
 	padding: 0 20px;
 	margin-left: 2px;
-	
-
 }
-.banner-t-l.on{
+
+.banner-t-l.on {
 	background: #333 url(../img/nav_b_bg.jpg) no-repeat 203px center;
 }
+
 .banner-t-r {}
 
 .banner-t-r ul {
@@ -63,11 +65,13 @@
 	font-size: 18px;
 	color: #DC0F50;
 }
+
 .banner-b {}
 
 .banner-b-l {
 	position: absolute;
 	display: none;
+	z-index: 1;
 }
 
 .banner-b-l ul {
@@ -108,38 +112,63 @@
 	line-height: 40px;
 	font-size: 14px;
 	color: #333;
-	
 }
 
 .banner-b-l a.erji:hover {
 	color: white;
 	background: #DC0F50;
 }
-.content-t{
+
+.content-t {
 	border: 1px solid #D6D6D6;
 }
-.content-t-l{
+
+.content-t-l {
 	margin: 30px 20px 80px 43px;
 }
-.content-t-l ul{padding-top: 14px;height: 480px;}
-.content-t-l a{
+
+.content-t-l ul {
+	padding-top: 14px;
+	height: 480px;
+}
+
+.content-t-l a {
 	display: block;
 	width: 65px;
 	height: 10px;
 	background: url(../img/up_down.png) no-repeat center -20px;
 }
-.content-t-l a:last-child{
-	background-position: center -30px; 
+
+.content-t-l a:last-child {
+	background-position: center -30px;
 }
-.content-t-l ul li{cursor: pointer;width: 65px;margin-bottom: 28px;border: 1px solid #FFFFFF;}
-.content-t-l ul li.on{border: 1px solid #DC0F50;}
-.content-t-l ul li img{width: 100%;}
-.content-t-c{
+
+.content-t-l ul li {
+	cursor: pointer;
+	width: 65px;
+	margin-bottom: 28px;
+	border: 1px solid #FFFFFF;
+}
+
+.content-t-l ul li.on {
+	border: 1px solid #DC0F50;
+}
+
+.content-t-l ul li img {
+	width: 100%;
+}
+
+.content-t-c {
 	width: 480px;
 	height: 480px;
 }
-.content-t-r{width: 530px;margin-left: 50px;}
-.content-t-r h2{
+
+.content-t-r {
+	width: 530px;
+	margin-left: 50px;
+}
+
+.content-t-r h2 {
 	font-weight: normal;
 	font-size: 20px;
 	margin-top: 40px;
@@ -147,54 +176,129 @@
 	border-bottom: 1px solid #D6D6D6;
 	line-height: 30px;
 }
-.content-t-r h2 i{
-	
+
+.content-t-r h2 i {
 	line-height: 26px;
 	padding: 5px 0;
 	padding-left: 90px;
 	background: url(../img/plane_bg.png) no-repeat left center;
-	
 }
-.content-t-r-b{}
-.content-t-r-b p:first-child{
+
+.content-t-r-b {}
+
+.content-t-r-b p:first-child {
 	line-height: 44px;
 	color: #DC0F50;
 	font-size: 30px;
 }
-.content-t-r-b p+p{
+
+.content-t-r-b p+p {
 	color: #666;
 	text-decoration: line-through;
 	line-height: 20px;
 	margin-bottom: 20px;
 	font-size: 18px;
 }
-.content-t-r-b span:nth-child(3){
+
+.content-t-r-b span:nth-child(3) {
 	color: #666666;
 	display: block;
 	margin-bottom: 25px;
 	font-size: 12px;
 }
-.content-t-r-b span:nth-child(3) i{
+
+.content-t-r-b span:nth-child(3) i {
 	margin-left: 18px;
 }
-.content-t-r-b span:nth-child(4){
+
+.content-t-r-b span:nth-child(4) {
 	color: #666666;
 	font-size: 12px;
 	display: block;
 	padding-bottom: 18px;
+}
+.content-t-r-b span:nth-child(5) {
+	color: #666666;
+	font-size: 12px;
+	display: block;
+	padding-bottom: 18px;
+	border: 1px solid white;
+	position: relative;
 	
 }
-.content-t-r-b span:nth-child(4) i{
+.content-t-r-b span:nth-child(5).error{
+	border: 1px solid #DC0F50;
+}
+.content-t-r-b span:nth-child(5) span{
+	position: absolute;
+	right: 0;
+	color: #DC0F50;
+	font-size: 20px;
+	top: 20%;
+	display: none;
+	
+}
+.content-t-r-b span:nth-child(5).error span{
+	display: block;
+}
+.content-t-r-b span:nth-child(6) {
+	color: #666666;
+	font-size: 12px;
+	display: block;
+	padding-bottom: 18px;
+	border: 1px solid white;
+	position: relative;
+	
+}
+.content-t-r-b span:nth-child(6).error{
+	border: 1px solid #DC0F50;
+}
+.content-t-r-b span:nth-child(6) span{
+	position: absolute;
+	right: 0;
+	color: #DC0F50;
+	font-size: 20px;
+	top: 20%;
+	display:none ;
+}
+.content-t-r-b span:nth-child(6).error span{
+	display: block;
+}
+.content-t-r-b span:nth-child(4) i {
 	margin-left: 44px;
 }
-
-.content-t-r-b span:nth-child(5){
+.content-t-r-b span:nth-child(5) i {
+	margin-left: 44px;
+	font-weight: bold;
+	padding: 2px 4px;
+	border: 1px solid #D6D6D6;
+	font-size: 12px;
+	cursor: pointer;
+}
+.content-t-r-b span:nth-child(5) i.on{
+	color: #DC0F50;
+	border-color: #DC0F50;
+}
+.content-t-r-b span:nth-child(6) i {
+	margin-left: 44px;
+	font-weight: bold;
+	padding: 2px 4px;
+	border: 1px solid #D6D6D6;
+	font-size: 12px;
+	cursor: pointer;
+}
+.content-t-r-b span:nth-child(6) i.on{
+	color: #DC0F50;
+	border-color: #DC0F50;
+}
+.content-t-r-b span:nth-child(7) {
 	color: #666666;
 	display: block;
 	font-size: 12px;
 	line-height: 19px;
 }
-.content-t-r-b span:nth-child(5) button{
+
+.content-t-r-b span:nth-child(7) button {
 	background: #f2f2f2;
 	border: none;
 	border: 1px solid #D6D6D6;
@@ -202,70 +306,82 @@
 	vertical-align: middle;
 	margin-right: 12px;
 }
-.content-t-r-b span:nth-child(5) button:first-child{
+
+.content-t-r-b span:nth-child(7) button:first-child {
 	margin-right: 0;
 	margin-left: 16px;
 }
-.content-t-r-b span:nth-child(5) input{
-	height: 16px;
+
+.content-t-r-b span:nth-child(7) input {
+	height: 17px;
 	width: 30px;
 	border-bottom: 1px solid #D6D6D6;
-	padding-bottom: 1px;
+	
 	border-top: 1px solid #D6D6D6;
 	padding-left: 24px;
-	vertical-align: middle;
+	vertical-align: bottom;
 }
-.content-t-r-b span:nth-child(5) i{
+
+.content-t-r-b span:nth-child(7) i {
 	color: #DC0F50;
 	margin: 0 6px;
 }
-.content-t-r-b b{
+
+.content-t-r-b b {
 	display: inline-block;
 	background: url(../img/jian.png)no-repeat left center;
 	padding-left: 18px;
 	height: 18px;
-	line-height:18px ;
+	line-height: 18px;
 	background-size: 18px 18px;
 	font-size: 14px;
 	margin-top: 14px;
 	margin-right: 34px;
 	margin-bottom: 20px;
-	
 }
-.content-t-r-b b:nth-child(7){
+
+.content-t-r-b b:nth-child(9) {
 	background: url(../img/you.png)no-repeat left center;
 	background-size: 18px 18px;
 }
-.content-t-r-b b:nth-child(8){
+
+.content-t-r-b b:nth-child(10) {
 	background: url(../img/tui.png)no-repeat left center;
 	background-size: 18px 18px;
 }
-.content-t-r-b b:last-child{
+
+.content-t-r-b b:last-child {
 	padding-left: 24px;
 	line-height: 20px;
 	height: 20px;
 	margin-left: 22px;
 	background: url(../img/icon_1.png)no-repeat left -59px;
 }
-.content-t-r-b>a{
+
+.content-t-r-b>a {
 	background: #fea829;
 	color: white;
 	padding: 12px 50px;
-	
 }
-.content-t-r-b a+a{
-	
+
+.content-t-r-b a+a {
 	color: white;
 	padding: 12px 50px 12px 70px;
 	background: #DC0F50 url(../img/news_car.png) no-repeat 20px center;
-	
 }
-.content-b{
+
+.content-b {
 	margin-top: 20px;
 	border: 1px solid #D6D6D6;
 }
-.content-b-t{border-bottom: 1px solid #D6D6D6;height: 38px;background: white;}
-.content-b-t span{
+
+.content-b-t {
+	border-bottom: 1px solid #D6D6D6;
+	height: 38px;
+	background: white;
+}
+
+.content-b-t span {
 	margin-top: -1px;
 	border-bottom: 1px solid #D6D6D6;
 	display: inline-block;
@@ -276,71 +392,68 @@
 	font-size: 18px;
 	cursor: pointer;
 }
-.content-b-t span.on{
-	
+
+.content-b-t span.on {
 	background: white;
 	border-bottom: 1px solid #FFFFFF;
 	border-top: 1px solid #DC0F50;
 	color: #DC0F50;
 	border-right: 1px solid #D6D6D6;
 	border-left: 1px solid #D6D6D6;
-	
 }
-.content-b-t span:first-child.on{
-	border-left:0;
+
+.content-b-t span:first-child.on {
+	border-left: 0;
 }
-.content-b-b{margin-top: 60px;}
-.content-b-b div.on{
+
+.content-b-b {
+	margin-top: 60px;
+}
+
+.content-b-b div.on {
 	display: block;
 }
 
-.content-b-b .detail{
+.content-b-b .detail {
 	margin-bottom: 60px;
 	text-align: center;
 	display: none;
-	
 }
-.content-b-b .argument{
+
+.content-b-b .argument {
 	display: none;
 }
-.content-b-b .argument ul{
+
+.content-b-b .argument ul {
 	margin-left: 45px;
 	color: #666666;
 	font-size: 12px;
 	margin-bottom: 100px;
 }
-.content-b-b .argument ul li{
+
+.content-b-b .argument ul li {
 	margin-bottom: 30px;
-	
 }
-.content-b-b .argument ul li span{
+
+.content-b-b .argument ul li span {
 	width: 108px;
 }
-.content-b-b .problem{
+
+.content-b-b .problem {
 	display: none;
 }
-.content-b-b .problem dl{
+
+.content-b-b .problem dl {
 	margin-left: 45px;
 	padding-bottom: 40px;
 	font-size: 14px;
 }
-.content-b-b .problem dl dt{
+
+.content-b-b .problem dl dt {
 	color: #DC0F50;
 	margin-bottom: 16px;
 }
-.content-b-b .problem dl dd{
+
+.content-b-b .problem dl dd {
 	margin-bottom: 48px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

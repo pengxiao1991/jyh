@@ -74,7 +74,8 @@
 				"height":this.height,
 				"overflow":"hidden",
 				"display": "none",
-				"position":"absolute"
+				"position":"absolute",
+				"z-index":"1"
 			});
 //			this.big = document.createElement("div");
 //			this.container.appendChild(this.big);

@@ -10,7 +10,9 @@ $(function(){
 	});
 	//导航栏的hover事件
 	$(".banner-b-l").mouseleave(function(){
+		if (e.relatedTarget!=$(".banner-t")[0]) {
 				$(".banner-b-l").hide();
+		}
 	});
 	$(".banner-t-l").hover(function(){
 		$(this).removeClass("on");
