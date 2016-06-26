@@ -34,14 +34,16 @@ $(function(){
 	//商品信息部分
 	//商品数量减少部分
 	$(".content-t-r-b span button:first").click(function(){
-		if ($(this).next().val()==1) {
-			
+		if ($(this).next().val()<=1) {
+			$(this).next().val(1);
 		} else{
 			$(this).next().val($(this).next().val()-1);
 		}
 	});
 	//商品数量显示部分
 	//初始化数据
+	//限定的最大数量
+	var max = $(".content-t-r-b>span:eq(4) i").text();
 	$(".content-t-r-b span button:first").next()[0].defaultValue=1;
 	$(".content-t-r-b span button:first").next()[0].value=1;
 	//先屏蔽非数字字符
@@ -54,18 +56,18 @@ $(function(){
 	//限定输入范围
 	$(".content-t-r-b span button:first").next().keyup(function(){
 		
-		if (this.value>=28) {
-			this.value=28;
+		if (this.value>=max) {
+			this.value=max;
 		} 
-		if (this.value<=0) {
+		if (this.value<=1) {
 			this.value=1;
 		}
 	});
 	//商品数量增加部分
 	$(".content-t-r-b span button:last").click(function(){
 		
-		if ($(this).prev().val()==28) {
-			
+		if ($(this).prev().val()>=max) {
+			$(this).prev().val(max);
 		} else{
 			$(this).prev().val($(this).prev().val()-0+1);
 		}
@@ -124,7 +126,8 @@ $(function(){
 						"color":$(".content-t-r-b>span:eq(2) i").text(),
 						"feature":$(".content-t-r-b>span:eq(3) i").text(),
 						"price":$(".content-t-r-b p:first").text(),
-						"count":$(".content-t-r-b span [type=text]").val()
+						"count":$(".content-t-r-b span [type=text]").val(),
+						"max":max
 						
 					});
 					
@@ -144,8 +147,8 @@ $(function(){
 								"color":$(".content-t-r-b>span:eq(2) i").text(),
 								"feature":$(".content-t-r-b>span:eq(3) i").text(),
 								"price":$(".content-t-r-b p:first").text(),
-								"count":$(".content-t-r-b span [type=text]").val()
-								
+								"count":$(".content-t-r-b span [type=text]").val(),
+								"max":max
 							});
 							break;
 						}
@@ -155,8 +158,10 @@ $(function(){
 				}
 				
 				
-				//将所获得的最后结果存入cookie
-				$.mySetCookie("user",JSON.stringify(arr),70*24*3600*1000);
+				window.onbeforeunload = function(){
+					//将所获得的最后结果存入cookie
+					$.mySetCookie("user",JSON.stringify(arr),70*24*3600*1000);
+				}
 				location.href = "shopCar.html";
 			}
 		}

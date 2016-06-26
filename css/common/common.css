@@ -211,7 +211,7 @@ body {
 	position: relative;
 }
 
-.header-b-r a {
+.header-b-r>a {
 	display: block;
 	width: 120px;
 	height: 42px;
@@ -219,7 +219,7 @@ body {
 	line-height: 42px;
 }
 
-.header-b-r a span:first-child {
+.header-b-r>a span:first-child {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
@@ -228,7 +228,7 @@ body {
 	margin: 0 6px;
 }
 
-.header-b-r a span:last-child {
+.header-b-r>a span:last-child {
 	position: absolute;
 	width: 18px;
 	height: 18px;
@@ -241,7 +241,7 @@ body {
 	right: -8px;
 }
 
-.header-b-r div {
+.header-b-r div.noGoods {
 	color: #999999;
 	background: white;
 	right: 0;
@@ -254,7 +254,7 @@ body {
 	line-height: 56px;
 }
 
-.header-b-r div span:first-child {
+.header-b-r div.noGoods span:first-child {
 	display: inline-block;
 	width: 34px;
 	height: 32px;
@@ -263,18 +263,99 @@ body {
 	margin: 0 10px 0 12px;
 }
 
-.header-b-r a span {
+.header-b-r>a span {
 	color: black;
 }
 
-.header-b-r div img {
+.header-b-r div.noGoods img {
 	width: 14px;
 	height: 11px;
 	position: absolute;
 	top: -11px;
 	right: 55px;
 }
-
+.header-b-r div.goods{
+	color: #666;
+	background: white;
+	right: 0;
+	margin-top: 1px;
+	display: none;
+	position: absolute;
+	width: 306px;
+	
+	border: 1px solid #E5E5E5;
+	
+	z-index: 1;
+}
+.header-b-r div.goods h4{
+	height: 25px;
+	padding: 6px 8px;
+	line-height: 25px;
+	color: #666666;
+}
+.header-b-r div.goods .goods-t{
+	background: white;
+}
+.header-b-r div.goods .goods-t ul{
+	max-height: 200px;
+	overflow: auto;
+}
+.header-b-r div.goods .goods-t li{
+	padding: 8px 10px;
+}
+.header-b-r div.goods .goods-t a{
+	font-size: 12px;
+	color: #666;
+}
+.header-b-r div.goods .goods-t a img{
+	width: 50px;
+	height: 50px;
+}
+.header-b-r div.goods .goods-t a p{
+	margin-left: 10px;
+	width: 120px;
+	height: 50px;
+	line-height: 16px;
+	
+	
+}
+.header-b-r div.goods .goods-t a:hover p{
+	color: #DC0F50;
+	
+	
+}
+.header-b-r div.goods .goods-t li div{
+	text-align: right;
+}
+.header-b-r div.goods .goods-t li div b{
+	display: block;
+}
+.header-b-r div.goods .goods-t li div b span{
+	color: #DC0F50;
+}
+.header-b-r div.goods .goods-t li div b i{
+	font-weight: bold;
+}
+.header-b-r div.goods .goods-b{
+	padding: 8px 10px;
+	font-size: 12px;
+}
+.header-b-r div.goods .goods-b .goods-b-l{
+	padding-top: 10px;
+}
+.header-b-r div.goods .goods-b span:first-child{
+	margin-right: 10px;	
+}
+.header-b-r div.goods .goods-b a{
+	color: #FFFFFF;
+	padding: 6px 10px;	
+	background: #DC0F50;
+	border-radius: 3px;
+	
+}
+.header-b-r div.goods .goods-b a:hover{
+	opacity: 0.8;
+}
 
 /*尾部样式*/
 
