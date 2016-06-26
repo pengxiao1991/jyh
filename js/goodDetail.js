@@ -1,4 +1,4 @@
-//加入购物车待完成
+
 $(function(){
 	
 	//二级菜单
@@ -54,9 +54,9 @@ $(function(){
 		
 	});
 	//限定输入范围
-	$(".content-t-r-b span button:first").next().keyup(function(){
+	$(".content-t-r-b span button:first").next().blur(function(){
 		
-		if (this.value>=max) {
+		if (this.value-0>=max-0) {
 			this.value=max;
 		} 
 		if (this.value<=1) {

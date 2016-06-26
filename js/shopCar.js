@@ -34,6 +34,7 @@ $(function(){
 		});
 	}
 	else{
+		
 		//所有的用户信息
 		var arr = JSON.parse($.myGetCookie("user"));
 		//当前在线的用户信息
@@ -48,6 +49,7 @@ $(function(){
 				"margin":"100px 0"
 			});
 		} else{
+			
 			var html = $(".content-t table tbody").html();
 			for (var i = 0; i < value.shopCar.length; i++) {
 				html+="<tr>"
@@ -75,6 +77,7 @@ $(function(){
 				
 			}
 			$(".content-t table tbody").html(html);
+			
 			total();
 			//为购物车内的各种按钮注册事件
 			
@@ -82,7 +85,7 @@ $(function(){
 			//商品数量显示部分
 			
 			//商品数量减少部分
-			$("tbody tr:not(:first) td:eq(3) button:first").click(function(){
+			$("tbody tr:not(:first) td:nth-child(4) button:first-child").click(function(){
 				if ($(this).next().val()<=1) {
 					$(this).next().val(1);
 				} else{
@@ -92,7 +95,7 @@ $(function(){
 				total();
 			});
 			//先屏蔽非数字字符
-			$("tbody tr:not(:first) td:eq(3) button:first").next().keypress(function(e){
+			$("tbody tr:not(:first) td:nth-child(4) button:first-child").next().keypress(function(e){
 				//屏蔽非数字键&&屏蔽键码大于9的键（就是保留上下，退格，删除键）&&保留ctrl键
 				if (!/\d/.test(String.fromCharCode(e.charCode))&&e.charCode>9&&!e.ctrlKey) {
 					e.preventDefault();
@@ -100,19 +103,19 @@ $(function(){
 				
 			});
 			//限定输入范围
-			$("tbody tr:not(:first) td:eq(3) button:first").next().keyup(function(){
+			$("tbody tr:not(:first) td:nth-child(4) button:first-child").next().blur(function(){
 				
-				if (this.value>=$(this).parent().next().find("i").text()) {
+				if ((this.value-0)>=$(this).parent().next().find("i").text()-0) {
 					this.value=$(this).parent().next().find("i").text();
 				} 
-				if (this.value<=1) {
+				if (this.value-0<=0) {
 					this.value=1;
 				}
 				subtotal($(this).parents("tr").index());
 				total();
 			});
 			//商品数量增加部分
-			$("tbody tr:not(:first) td:eq(3) button:last").click(function(){
+			$("tbody tr:not(:first) td:nth-child(4) button:last-child").click(function(){
 				
 				if ($(this).prev().val()>=$(this).parent().next().find("i").text()-0) {
 					$(this).prev().val($(this).parent().next().find("i").text());
@@ -152,7 +155,7 @@ $(function(){
 				total();
 			});
 			//表格中按钮的点击事件
-			$("tbody tr:not(:first) td:eq(0) input").click(function(){
+			$("tbody tr:not(:first) td:first-child input").click(function(){
 				if (this.checked) {
 					//都被选中时
 					if ($("tbody tr:not(:first) td:eq(0) input:not(:checked)".length==0)) {
@@ -170,6 +173,7 @@ $(function(){
 			function subtotal(index){
 				var $far = $(".content-t tbody tr:eq("+index+")");
 				$far.find("td:eq(4)").text(($far.find("td:eq(2)").text()*100*$far.find("td:eq(3)").find("input").val()/100).toFixed(2));
+				
 			}
 			//计算所有被选择商品的总价，并显示出选择的数量
 			function total(){
@@ -178,13 +182,14 @@ $(function(){
 				var numSum = 0;
 				//$(".content-b-r span:first i").text($("tbody tr:not(:first) td:eq(0) :checked").length);
 				//遍历取和
-				$("tbody tr:not(:first) td:eq(0) :checked").parents("tr").find("td:eq(4)").each(function(index){
+				$("tbody tr:not(:first) td:first-child :checked").parents("tr").find("td:eq(4)").each(function(index){
 					priceSum = priceSum + $(this).text()*100;
 					numSum = numSum + ($(this).prev().find("input").val()-0);
 				})
 				//改变总价和总选择的件数
 				$(".content-b-r span:last b").text("￥"+(priceSum/100).toFixed(2));
 				$(".content-b-r span:first i").text(numSum);
+				$(".header-t-r ul li:eq(4) span").text(numSum);
 			}
 			//离开页面前的事件，将所修改的数据保存到cookie中
 			window.onbeforeunload = function(){
