@@ -9,7 +9,7 @@
 //"navBtnMargin":10,"aHref":["1.html","2.html","3.html","4.html","5.html","6.html"]}
 ;
 (function($) {
-	function Carousel(element,json) {
+	function Carousel(element, json) {
 		this.outerContainer = element;
 		this.width = json.width;
 		this.height = json.height;
@@ -49,16 +49,16 @@
 			this.ul.style.cssText = "margin:0;width: " + this.width * (this.srcArr.length + 2) + "px;height: " + this.height + "px;padding:0;position: absolute;";
 			//为ul添加内容
 			for (var i = 0; i < this.srcArr.length; i++) {
-				this.ul.innerHTML += "<li style=\"display:none;float:left;position:absolute;list-style:none;\"><a href=\""+this.aHref[i]+"\"><img style=\"display:block;width: " + this.width + "px;height: " + this.height + "px;\" src=\"" + this.srcArr[i] + "\"></a></li>"
+				this.ul.innerHTML += "<li style=\"display:none;float:left;position:absolute;list-style:none;\"><a href=\"" + this.aHref[i] + "\"><img style=\"display:block;width: " + this.width + "px;height: " + this.height + "px;\" src=\"" + this.srcArr[i] + "\"></a></li>"
 			}
 			//显示第一张图
-			$("li:first",this.ul).show();
-			
+			$("li:first", this.ul).show();
+
 			// //添加第一张图到图集的最后，方便后续的边界判断
 			// this.ul.innerHTML += "<li style=\"float:left;list-style:none;\"><img style=\"display:block;\" src=\"" + this.srcArr[0] + "\"></li>"
 			// 	//清除浮动
 			// this.ul.innerHTML += "<li style=\"clear:both;font-size:0;overflow:hidden;\"></li>";
-			
+
 			//新建左按钮，添加到文档，再给它设置样式
 			this.leftBtn = document.createElement("a");
 			this.innerContainer.appendChild(this.leftBtn);
@@ -94,65 +94,63 @@
 				$(that.leftBtn).animate({
 					"left": 0,
 					"opacity": 1
-				},100);
+				}, 100);
 				$(that.rightBtn).animate({
 					"right": 0,
 					"opacity": 1
-				},100);
-				
+				}, 100);
+
 			}
 			this.innerContainer.onmouseleave = function() {
-				//重新自动播放
-				that.autoPlay();
-				$(that.leftBtn).animate({
-					"left": -that.btnWidth,
-					"opacity": 0
-				},100);
-				$(that.rightBtn).animate({
-					"right": -that.btnWidth,
-					"opacity": 0
-				},100);
-				
-			}
+					//重新自动播放
+					that.autoPlay();
+					$(that.leftBtn).animate({
+						"left": -that.btnWidth,
+						"opacity": 0
+					}, 100);
+					$(that.rightBtn).animate({
+						"right": -that.btnWidth,
+						"opacity": 0
+					}, 100);
+
+				}
 				//右按钮点击事件
 			this.rightBtn.onmousedown = function() {
 
 				//边界判断，当图片在最后一张时
-				if (that.index == that.srcArr.length-1) {
-					
+				if (that.index == that.srcArr.length - 1) {
+
 					//将之前的导航按钮背景还原
 					that.nav.children[that.index].className = "";
 					//渐隐最后一张图片
-					$("li:eq("+that.index+")",that.ul).fadeOut();
+					$("li:eq(" + that.index + ")", that.ul).fadeOut();
 					//改变全局索引
 					that.index = 0;
 					//渐显第一张图片
-					$("li:eq("+that.index+")",that.ul).fadeIn();
+					$("li:eq(" + that.index + ")", that.ul).fadeIn();
 					//显示下一张图
 					// $(that.ul).animate({
 					// 	"left": -1 * that.index * that.width
 					// },100);
-					
+
 					//改变对应的导航按钮背景
 					that.nav.children[that.index].className = "on";
 
-				} 
-				else {
-					
+				} else {
+
 					//渐隐当前图片
-					$("li:eq("+that.index+")",that.ul).fadeOut();
+					$("li:eq(" + that.index + ")", that.ul).fadeOut();
 					//将之前的导航按钮背景还原
 					that.nav.children[that.index++].className = "";
 					//渐显下一张图片
-					$("li:eq("+that.index+")",that.ul).fadeIn();
+					$("li:eq(" + that.index + ")", that.ul).fadeIn();
 					//移动到下一张图
 					// $(that.ul).animate({
 					// 	"left": -1 * that.index * that.width
 					// },100);
-					
-					
+
 					that.nav.children[that.index].className = "on";
-					
+
 				}
 			}
 			this.leftBtn.onmousedown = function() {
@@ -163,30 +161,30 @@
 					//将图片流设置到最后一张新添加的图片上
 					//that.ul.style.left = -1 * that.srcArr.length * that.width + "px";
 					//渐隐第一张图片
-					$("li:eq("+that.index+")",that.ul).fadeOut();
+					$("li:eq(" + that.index + ")", that.ul).fadeOut();
 					//将索引修改为倒数第二张图片所对应的索引
 					that.index = that.srcArr.length - 1;
 					//渐显最后一张图片
-					$("li:eq("+that.index+")",that.ul).fadeIn();
+					$("li:eq(" + that.index + ")", that.ul).fadeIn();
 					//设置导航按钮的背景色
 					that.nav.children[that.index].className = "on";
 					//移动到倒数第二张图
-					
-//					$(that.ul).animate({
-//						"left": -1 * that.index * that.width
-//					},100);
+
+					//					$(that.ul).animate({
+					//						"left": -1 * that.index * that.width
+					//					},100);
 
 				} else {
 					//渐隐当前图片
-					$("li:eq("+that.index+")",that.ul).fadeOut();
+					$("li:eq(" + that.index + ")", that.ul).fadeOut();
 					//将之前的导航按钮背景还原
 					that.nav.children[that.index--].className = "";
 					//渐显下一张图片
-					$("li:eq("+that.index+")",that.ul).fadeIn();
+					$("li:eq(" + that.index + ")", that.ul).fadeIn();
 					//移动到下一张图
-//					$(that.ul).animate({
-//						"left": -1 * that.index * that.width
-//					},100);
+					//					$(that.ul).animate({
+					//						"left": -1 * that.index * that.width
+					//					},100);
 					//
 					//设置对应的导航按钮背景色
 					that.nav.children[that.index].className = "on";
@@ -221,9 +219,9 @@
 		}
 	};
 	$.fn.extend({
-		"carouselBanner":function (json) {
-			new Carousel(this[0],json);
+		"carouselBanner": function(json) {
+			new Carousel(this[0], json);
 		}
 	});
-	
+
 })(jQuery)

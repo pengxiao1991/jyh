@@ -1,29 +1,6 @@
 
 $(function(){
 	
-	//二级菜单
-	$(".erji").parent().hover(function(){
-		$(this).find("div").show().prev().css({"background":"#DC0F50","color":"white"});
-	},function(){
-		$(this).find("div").hide().prev().css({"background":"#fff","color":"#333"});
-	});
-	//导航栏的hover事件
-	$(".banner-b-l").mouseleave(function(e){
-			if (e.relatedTarget!=$(".banner-t")[0]) {
-				$(".banner-b-l").hide();
-			}
-	});
-	$(".banner-t-l").hover(function(){
-		$(this).removeClass("on");
-		$(".banner-b-l").show();
-	},function(e){
-		
-		if (e.relatedTarget!=$(".banner-t")[0]) {
-			$(this).addClass("on");
-			$(".banner-b-l").hide();
-		}
-	});
-	
 	//放大镜部分
 	$(".content-t-c").enlarge(480,480,3,"../img/enlarge1.jpg");
 	//放大镜左侧部分li列表项的点击事件,点击后给放大镜更换图片
@@ -34,20 +11,22 @@ $(function(){
 	//商品信息部分
 	//商品数量减少部分
 	$(".content-t-r-b span button:first").click(function(){
-		if ($(this).next().val()<=1) {
+		if ($(this).next().val()-0<=1) {
 			$(this).next().val(1);
 		} else{
 			$(this).next().val($(this).next().val()-1);
 		}
 	});
-	//商品数量显示部分
-	//初始化数据
+	
 	//限定的最大数量
 	var max = $(".content-t-r-b>span:eq(4) i").text();
+	//商品数量显示部分
+	//初始化数据
 	$(".content-t-r-b span button:first").next()[0].defaultValue=1;
 	$(".content-t-r-b span button:first").next()[0].value=1;
 	//先屏蔽非数字字符
 	$(".content-t-r-b span button:first").next().keypress(function(e){
+		//屏蔽非数字键&&屏蔽键码大于9的键（就是保留上下，退格，删除键）&&保留ctrl键
 		if (!/\d/.test(String.fromCharCode(e.charCode))&&e.charCode>9&&!e.ctrlKey) {
 			e.preventDefault();
 		}
@@ -59,14 +38,14 @@ $(function(){
 		if (this.value-0>=max-0) {
 			this.value=max;
 		} 
-		if (this.value<=1) {
+		if (this.value-0<=1) {
 			this.value=1;
 		}
 	});
 	//商品数量增加部分
 	$(".content-t-r-b span button:last").click(function(){
 		
-		if ($(this).prev().val()>=max) {
+		if ($(this).prev().val()-0>=max-0) {
 			$(this).prev().val(max);
 		} else{
 			$(this).prev().val($(this).prev().val()-0+1);
@@ -80,19 +59,25 @@ $(function(){
 	});
 	//立即购买按钮的点击事件
 	$(".content-t-r-b>a:first").click(function(e){
-		if ($(".content-t-r-b span span").prev().get(0).className=="") {
-			$(".content-t-r-b span span").parent().eq(0).addClass("error");
+		//如果颜色部分没有选中
+		if (!$(".content-t-r-b span span:first").prevAll("i").hasClass("on")) {
+			$(".content-t-r-b span span:first").parent().addClass("error");
 			return false;
 		} 
-		if($(".content-t-r-b span span").prev().get(1).className==""){
-			$(".content-t-r-b span span").parent().eq(1).addClass("error");
+		//如果规格部分没有选中
+		if(!$(".content-t-r-b span span:last").prevAll("i").hasClass("on")) {
+			$(".content-t-r-b span span:last").parent().addClass("error");
 			return false;
 		}
 		else{
+			//如果没有登录
 			if ($(".header-t-r li a:eq(1)").text()=="请登录") {
 				e.preventDefault();
-				//需要将数据传递给结算页，暂时考虑用cookie
+				
 				location.href = "login.html";
+			}
+			else{
+				//需要将数据传递给结算页，暂时考虑用cookie
 			}
 		}
 	});
@@ -100,25 +85,31 @@ $(function(){
 	
 	$(".content-t-r-b>a:last").click(function(e){
 		//是否有选项没有被选中，有的话就显示警告
-		if ($(".content-t-r-b span span").prev().get(0).className=="") {
-			$(".content-t-r-b span span").parent().eq(0).addClass("error");
+		//如果颜色部分没有选中
+		if (!$(".content-t-r-b span span:first").prevAll("i").hasClass("on")) {
+			$(".content-t-r-b span span:first").parent().addClass("error");
 			return false;
 		} 
-		if($(".content-t-r-b span span").prev().get(1).className==""){
-			$(".content-t-r-b span span").parent().eq(1).addClass("error");
+		//如果规格部分没有选中
+		if(!$(".content-t-r-b span span:last").prevAll("i").hasClass("on")) {
+			$(".content-t-r-b span span:last").parent().addClass("error");
 			return false;
-		}
+		}		
 		else{
+			//如果没有登录
 			if ($(".header-t-r li a:eq(1)").text()=="请登录") {
 				e.preventDefault();
-				//需要将数据传递给结算页，暂时考虑用cookie
+				
 				location.href = "login.html";
 			}
 			else{
-				//获取当前登录用户的所有信息
+				//获取所有用户的所有信息
 				var arr = JSON.parse($.myGetCookie("user"));
+				//获取所有用户的所有信息
 				var value = arr[0];
+				//如果购物车为空
 				if (value.shopCar.length==0) {
+					//将当前商品存入到购物车数组的头部
 					value.shopCar.unshift({
 						"id":$(".content-t-r-b span:first i").text(),
 						"src":$(".content-t-l ul li img:first").attr("src"),
@@ -130,7 +121,7 @@ $(function(){
 						"max":max
 						
 					});
-					
+					//如果购物车不为空
 				} else{
 					for (var i = 0; i < value.shopCar.length; i++) {
 						//如果存在id相同的
@@ -157,7 +148,7 @@ $(function(){
 					
 				}
 				
-				
+				//页面卸载（刷新，跳转，关闭）前
 				window.onbeforeunload = function(){
 					//将所获得的最后结果存入cookie
 					$.mySetCookie("user",JSON.stringify(arr),70*24*3600*1000);
@@ -188,16 +179,19 @@ $(function(){
 	});
 	//原始部分的click事件
 	$("span",$origin).on("click",function(){
+		//点击既要改变当前的选项卡的样式，也要改变隐藏的吸顶部分对应的的选项卡的样式
 		$(this).addClass("on").siblings("span").removeClass("on");
 		$("span",$clone).eq($(this).index()).addClass("on").siblings("span").removeClass("on");
+		//显示每个选项卡下对应的选项
 		$(".content-b-b div").eq($(this).index()).addClass("on").siblings("div").removeClass("on");
 	});
 	//副本部分的click事件
 	$("span",$clone).click(function(){
-				
-				$(window).scrollTop($origin.offset().top)
-				$origin.find("span").eq($(this).index()).click();
-		});
+		//屏幕滚动到页面上存在的选项卡	
+		$(window).scrollTop($origin.offset().top)
+		//调用源头部分对应选项卡的点击事件
+		$origin.find("span").eq($(this).index()).click();
+	});
 		
 	//滚动条滚动事件，如果到了商品详情部分，显示吸顶部分，
 	$(window).on("scroll",function(){
@@ -207,5 +201,6 @@ $(function(){
 			$clone.hide();
 		}
 	});
+	//先触发一次滚动事件
 	$(window).scroll();
 })

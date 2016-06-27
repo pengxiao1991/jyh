@@ -1,14 +1,14 @@
-#cover{
+#cover {
 	display: none;
 	width: 100%;
 	height: 100%;
 	position: fixed;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0, 0, 0, 0.5);
 	z-index: 1;
 	text-align: center;
-	
 }
-#cover span{
+
+#cover span {
 	position: absolute;
 	top: 50%;
 	font-size: 20px;
@@ -16,23 +16,33 @@
 	display: inline-block;
 	vertical-align: middle;
 }
-#cover span i{
+
+#cover span i {
 	color: #DC0F50;
 	font-size: 40px;
 	margin-bottom: 1px;
 	display: inline-block;
 	vertical-align: middle;
-	
 }
-#content{
+
+#content {
 	border-top: 2px solid #DC0F50;
 	padding-top: 80px;
 	padding-bottom: 124px;
 }
-.content-l{margin-left: 70px;}
-.content-r{width: 450px;margin-left: 166px;}
-.content-r-t{}
-.content-r-t span{
+
+.content-l {
+	margin-left: 70px;
+}
+
+.content-r {
+	width: 450px;
+	margin-left: 166px;
+}
+
+.content-r-t {}
+
+.content-r-t span {
 	margin: 0 76px;
 	display: inline;
 	width: 50%;
@@ -43,21 +53,23 @@
 	padding-bottom: 9px;
 	cursor: pointer;
 }
-.content-r-t span.on{
+
+.content-r-t span.on {
 	color: #DC0F50;
 	border-bottom: 2px solid #DC0F50;
 }
 
+.content-r-b {}
 
+.content-r-b form {}
 
-.content-r-b{}
-.content-r-b form{}
-.content-r-b form fieldset{
-		padding: 12px 70px 60px 70px;
-		border: 0;
-		border: 1px solid #D6D6D6;
-	}
-.content-r-b form fieldset p{
+.content-r-b form fieldset {
+	padding: 12px 70px 60px 70px;
+	border: 0;
+	border: 1px solid #D6D6D6;
+}
+
+.content-r-b form fieldset p {
 	visibility: hidden;
 	height: 40px;
 	line-height: 40px;
@@ -66,10 +78,12 @@
 	background: url(../img/error_bg.png) no-repeat 10px center;
 	padding-left: 30px;
 }
-.content-r-b form fieldset p.error{
+
+.content-r-b form fieldset p.error {
 	visibility: visible;
 }
-.content-r-b form fieldset input:nth-child(2){
+
+.content-r-b form fieldset input:nth-child(2) {
 	width: 240px;
 	background: url(../img/icon01.png) no-repeat 10px center;
 	border: 1px solid #D6D6D6;
@@ -77,7 +91,8 @@
 	line-height: 38px;
 	height: 38px;
 }
-.content-r-b form:first-child fieldset input:nth-child(4){
+
+.content-r-b form:first-child fieldset input:nth-child(4) {
 	width: 240px;
 	background: url(../img/icon02.png) no-repeat 10px center;
 	border: 1px solid #D6D6D6;
@@ -86,27 +101,34 @@
 	height: 38px;
 	margin-bottom: 6px;
 }
-.content-r-b form:first-child fieldset input:nth-child(4).error{
+
+.content-r-b form:first-child fieldset input:nth-child(4).error {
 	border-color: #DC0F50;
 }
-.content-r-b form:first-child fieldset input:nth-child(2).error{
+
+.content-r-b form:first-child fieldset input:nth-child(2).error {
 	border-color: #DC0F50;
 }
-.content-r-b form fieldset label{
+
+.content-r-b form fieldset label {
 	color: #666666;
 }
-.content-r-b form fieldset label+a{
+
+.content-r-b form fieldset label+a {
 	margin-left: 10px;
 	color: #666666;
 }
-.content-r-b form fieldset a+a{
+
+.content-r-b form fieldset a+a {
 	margin-left: 58px;
 	color: #666666;
 }
-.content-r-b form fieldset a:hover{
+
+.content-r-b form fieldset a:hover {
 	color: #DC0F50;
 }
-.content-r-b form fieldset button{
+
+.content-r-b form fieldset button {
 	width: 300px;
 	background: #DC0F50;
 	color: white;
@@ -117,16 +139,20 @@
 	margin-top: 40px;
 	cursor: pointer;
 }
-.content-r-b form fieldset button:hover{
+
+.content-r-b form fieldset button:hover {
 	opacity: 0.8;
 }
-.content-r-b form{
+
+.content-r-b form {
 	display: none;
 }
-.content-r-b form.on{
+
+.content-r-b form.on {
 	display: block;
 }
-.content-r-b form:last-child fieldset p:first-child{
+
+.content-r-b form:last-child fieldset p:first-child {
 	visibility: visible;
 	height: 40px;
 	line-height: 40px;
@@ -135,13 +161,13 @@
 	background: url(../img/ling.png) no-repeat 10px center;
 	padding-left: 30px;
 }
-.content-r-b form:last-child fieldset i{
-	
+
+.content-r-b form:last-child fieldset i {
 	font-size: 12px;
 	color: #666;
-	
 }
-.content-r-b form:last-child fieldset input:nth-child(3){
+
+.content-r-b form:last-child fieldset input:nth-child(3) {
 	width: 150px;
 	background: url(../img/icon01.png) no-repeat 10px center;
 	border: 1px solid #D6D6D6;
@@ -149,7 +175,8 @@
 	line-height: 38px;
 	height: 38px;
 }
-.content-r-b form:last-child fieldset input:nth-child(6){
+
+.content-r-b form:last-child fieldset input:nth-child(6) {
 	width: 240px;
 	background: url(../img/icon02.png) no-repeat 10px center;
 	border: 1px solid #D6D6D6;
@@ -158,7 +185,8 @@
 	height: 38px;
 	margin-bottom: 6px;
 }
-.content-r-b form:last-child fieldset input:nth-child(4){
+
+.content-r-b form:last-child fieldset input:nth-child(4) {
 	width: 90px;
 	height: 40px;
 	color: white;
