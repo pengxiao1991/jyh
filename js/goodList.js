@@ -67,26 +67,67 @@ $(function(){
 			//先除去上次生成的按钮
 			$(".content-b-l-b li:not(:first,:last)").remove();
 			$(".content-b-l-b li:first").after(pageHtml);
-			$.each(data, function(index,value) {
-				if (index<5) {
-					html+="<li class=\"fl\">"
-								+"<a href=\"goodDetail.html\">"
-									+(value.abord?"<i></i>":"")
-									+"<img src=\""+value.src+"\"/>"
-									+"<p>"+value.description+"</p>"
-									+"<div class=\"a-b clear\">"
-										+"<div class=\"a-b-l fl\">"
-											+"<span>"+value.price+"</span>"
-											+"<p>"+value.sale+"</p>"
-										+"</div>"
-										+"<span class=\"fr\">"+value.oldPrice+"</span>"
-									+"</div>"
-								+"</a>"
-							+"</li>";
+			//动态加载每页的内容部分
+			var current = 1;
+			loadContent(current);
+			//给分页按钮注册点击事件
+			//上一页
+			$(".content-b-l-b li:first a").click(function(){
+				if (current==1) {
+					current = 1;
 				}
+				else{
+					current--;
+				}
+				loadContent(current);
 			});
-			//先清空当前ul原先的内容，再动态添加生成的li，并显示他们，同时隐藏同辈元素
-			$("div.ul ul").eq($(that).index()).empty().append(html).addClass("on").siblings().removeClass("on");
+			//下一页
+			$(".content-b-l-b li:last a").click(function(){
+				if (current==pageCount) {
+					current = pageCount;
+				}
+				else{
+					current++;
+				}
+				loadContent(current);
+			});
+			//中间的按钮
+			$(".content-b-l-b li a").slice(1,-1).click(function(){
+				current = $(this).text();
+				loadContent(current);
+			});
+			//跳页按钮的点击事件
+			$(".content-b-l-b>span a").click(function(){
+				current = $(this).prev().val();
+				loadContent(current);
+			});
+			function loadContent(current){
+				$(".content-b-l-b>span input").val(current);
+				//改变所选择按钮的样式
+				$(".content-b-l-b li a").eq(current).addClass("on").parent().siblings().find("a").removeClass("on");
+				html = "";
+				$.each(data, function(index,value) {
+					if (index<5*current&&index>=(current-1)*5) {
+						html+="<li class=\"fl\">"
+									+"<a href=\"goodDetail.html\">"
+										+(value.abord?"<i></i>":"")
+										+"<img src=\""+value.src+"\"/>"
+										+"<p>"+value.description+"</p>"
+										+"<div class=\"a-b clear\">"
+											+"<div class=\"a-b-l fl\">"
+												+"<span>"+value.price+"</span>"
+												+"<p>"+value.sale+"</p>"
+											+"</div>"
+											+"<span class=\"fr\">"+value.oldPrice+"</span>"
+										+"</div>"
+									+"</a>"
+								+"</li>";
+					}
+				});
+				//先清空当前ul原先的内容，再动态添加生成的li，并显示他们，同时隐藏同辈元素
+				$("div.ul ul").eq($(that).index()).empty().append(html).addClass("on").siblings().removeClass("on");
+				
+			}
 			
 		});
 	});

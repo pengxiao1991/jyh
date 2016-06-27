@@ -92,6 +92,10 @@
 	vertical-align: middle;
 	line-height: 40px;
 	text-align: center;
+	font-size: 12px;
+}
+.content-l form fieldset:nth-child(4) a i{
+	color: white;
 }
 .content-l form fieldset:nth-child(4) a:hover{
 	opacity: 0.8;

@@ -1,4 +1,4 @@
-//验证码待做
+
 
 $(function(){
 	//用户名输入框的keypress事件，监测是否输入数字，拦截非数字
@@ -61,10 +61,20 @@ $(function(){
 		$(this).removeClass("error").next().removeClass("error");
 	});
 	//验证码框blur事件,判断各种情况
-	$(".content-l input:eq(3)").blur(function(){});
+	$(".content-l input:eq(3)").blur(function(){
+		if ($(this).val().length==0) {
+			$(this).removeClass("error").nextAll("span").removeClass("error");
+		}
+		else if($(this).val()==authCode){
+			$(this).removeClass("error").nextAll("span").removeClass("error");
+		}
+		else{
+			$(this).addClass("error").nextAll("span").addClass("error");
+		}
+	});
 	//验证码框的focus事件，去除警告状态
-	$(".content-l input:eq(2)").focus(function(){
-		$(this).removeClass("error").next().removeClass("error");
+	$(".content-l input:eq(3)").focus(function(){
+		$(this).removeClass("error").nextAll("span").removeClass("error");
 	});
 	//checkbox按钮的blur事件
 	$(".content-l [type=checkbox]").blur(function(){
@@ -76,7 +86,49 @@ $(function(){
 			
 		}
 	});
-	
+	//验证码按钮的点击事件
+	//开关，用来控制发送短信
+	var flag = true;
+	var authCode = "";
+	$(".content-l form fieldset:nth-child(4) a").on("click",function(){
+		$(".content-l input:first").blur();
+		if ($(".content-l input:first").hasClass("error")||$(".content-l input:first").val().length==0) {
+			return false;
+		}
+		if (flag) {
+			authCode = "";
+			flag = false;
+			var count = 50;
+			$(this).html("<i>"+count+"</i>秒后可重新获取");
+			for (var i = 0; i <6; i++) {
+				authCode+=Math.round(Math.random()*9);
+			}
+			
+			$.ajax({
+				"type":"get",
+				"url":"http://apis.baidu.com/kingtto_media/106sms/106sms",
+				"async":true,
+				"data":{"mobile":$(".content-l input:first").val(),"content":"【家有惠】验证码："+authCode+"","tag":"2"},
+				"dataType":"json",
+				"headers":{"apikey":"2a1534ddf549d79e069961b1b93388b5"},
+				"success":function(data){
+					console.log(data);
+				}
+			});
+			var timer = setInterval(function(){
+				count--;
+				if (count==0) {
+					clearInterval(timer);
+					flag = true;
+					$(".content-l form fieldset:nth-child(4) a").text("获取验证码");
+					return;
+				}
+				$(".content-l form fieldset:nth-child(4) a i").text(count);
+			},1000);
+			
+		}
+		
+	});
 	//注册按钮点击事件
 	$(".content-l input:eq(-1)").click(function(e){
 		
