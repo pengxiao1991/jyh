@@ -53,30 +53,30 @@
 
 				$(this).nextAll().eq(3).stop().animate({
 					"width": width
-				}, 500);
+				}, 400);
 				$(this).nextAll().eq(2).stop().animate({
 					"height": height - borderWidth
-				}, 500);
+				}, 400);
 				$(this).nextAll().eq(1).stop().animate({
 					"width": width
-				}, 500);
+				}, 400);
 				$(this).nextAll().eq(0).stop().animate({
 					"height": height - borderWidth
-				}, 500);
+				}, 400);
 
 			}, function() {
 				$(this).nextAll().eq(3).stop().animate({
 					"width": 0
-				}, 500);
+				}, 400);
 				$(this).nextAll().eq(2).stop().animate({
 					"height": 0
-				}, 500);
+				}, 400);
 				$(this).nextAll().eq(1).stop().animate({
 					"width": 0
-				}, 500);
+				}, 400);
 				$(this).nextAll().eq(0).stop().animate({
 					"height": 0
-				}, 500);
+				}, 400);
 			});
 		}
 	});

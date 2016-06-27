@@ -211,9 +211,12 @@ body {
 	font-size: 14px;
 	margin: 32px 0 0 156px;
 	position: relative;
+	/*用来让hover事件不出现bug*/
+	padding-bottom: 5px;
 }
 
 .header-b-r>a {
+	position: relative;
 	display: block;
 	width: 120px;
 	height: 42px;
@@ -254,6 +257,7 @@ body {
 	height: 56px;
 	border: 1px solid #E5E5E5;
 	line-height: 56px;
+	
 }
 
 .header-b-r div.noGoods span:first-child {
@@ -420,6 +424,7 @@ body {
 	position: absolute;
 	display: none;
 	z-index: 1;
+	/*用来让hover事件不出现bug*/
 	border-top: 2px solid #dc0f50;
 	margin-top: -2px;
 	left: 32px;
