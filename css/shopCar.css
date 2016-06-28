@@ -1,6 +1,13 @@
-body{color: #333333;}
-a{color: #333333;}
-#content{}
+body {
+	color: #333333;
+}
+
+a {
+	color: #333333;
+}
+
+#content {}
+
 .banner-t {
 	border-bottom: 2px solid #dc0f50;
 }
@@ -107,64 +114,71 @@ a{color: #333333;}
 	color: white;
 	background: #DC0F50;
 }
-#content .margin h4{
+
+#content .margin h4 {
 	margin-bottom: 20px;
 	padding-top: 20px;
 	font-weight: normal;
 	color: #333333;
 	font-size: 12px;
 	margin-left: 30px;
-	
 	height: 16px;
 	line-height: 16px;
-	
 }
-#content .margin h4 i{
+
+#content .margin h4 i {
 	background: url(../img/h2_bg.png) no-repeat left center;
 	width: 35px;
 	height: 16px;
 	line-height: 16px;
 	display: inline-block;
-	
 	background-size: cover;
 	font-size: 12px;
 	color: white;
 	margin-right: 10px;
 	padding-left: 5px;
 }
-.content-t{}
-#content label{
+
+.content-t {}
+
+#content label {
 	margin-left: 12px;
 }
-.content-t table{
+
+.content-t table {
 	text-align: center;
 	margin-left: 30px;
-	border-left:1px solid #D6D6D6 ;
-	border-right:1px solid #D6D6D6 ;
+	border-left: 1px solid #D6D6D6;
+	border-right: 1px solid #D6D6D6;
 }
-.content-t table tr{
+
+.content-t table tr {
 	border-color: #D6D6D6;
 	background: #fffceb;
-	
 }
-.content-t table tr:first-child th{
+
+.content-t table tr:first-child th {
 	font-weight: normal;
 	color: #333333;
 	font-size: 12px;
 }
-.content-t table tr:first-child th:nth-child(2){
+
+.content-t table tr:first-child th:nth-child(2) {
 	width: 560px;
 }
-.content-t table tr:first-child{
+
+.content-t table tr:first-child {
 	background: #F1F1F1;
 	height: 44px;
 	line-height: 44px;
 }
-.content-t table tr td:first-child{
+
+.content-t table tr td:first-child {
 	width: 76px;
 	text-align: center;
 }
-.content-t table td p{
+
+.content-t table td p {
 	margin-top: 44px;
 	width: 276px;
 	padding-left: 10px;
@@ -172,162 +186,153 @@ a{color: #333333;}
 	line-height: 16px;
 	text-align: left;
 }
-.content-t table td img{
+
+.content-t table td img {
 	width: 80px;
 	height: 80px;
 	margin-top: 16px;
 	margin-bottom: 16px;
 }
-.content-t table td b{
+
+.content-t table td b {
 	display: block;
 	line-height: 16px;
 	font-size: 12px;
 	color: #999999;
-	
 	width: 186px;
 }
-.content-t table td b:first-child{
+
+.content-t table td b:first-child {
 	margin-top: 38px;
-	
 }
-.content-t table td a:hover{
+
+.content-t table td a:hover {
 	color: #DC0F50;
 }
-.content-t table tr:not(:first-child) td:nth-child(3){
+
+.content-t table tr:not(:first-child) td:nth-child(3) {
 	font-weight: bold;
 	font-size: 12px;
 	text-align: center;
 }
-.content-t table tr td:nth-child(4) span{
+
+.content-t table tr td:nth-child(4) span {
 	color: #DC0F50;
 	font-size: 12px;
 }
-.content-t table tr td:nth-child(4) div{
+
+.content-t table tr td:nth-child(4) div {
 	border: 1px solid #D6D6D6;
 	width: 77px;
 	height: 24px;
 	margin: 0 auto;
 }
 
-.content-t table tr td:nth-child(4) div button{
+.content-t table tr td:nth-child(4) div button {
 	height: 100%;
 }
-.content-t table tr td:nth-child(4) div input{
+
+.content-t table tr td:nth-child(4) div input {
 	padding-left: 10px;
 	width: 16px;
 	border-left: 1px solid #D6D6D6;
 	border-right: 1px solid #D6D6D6;
-	
 	height: 100%;
-	
 	vertical-align: bottom;
 }
-.content-t table tr td:nth-child(2) div{
+
+.content-t table tr td:nth-child(2) div {
 	width: 135px;
 	text-align: left;
 }
-.content-t table tr td button{
+
+.content-t table tr td button {
 	border: 0;
 }
-.content-t table tr:first-child th:nth-child(3){
+
+.content-t table tr:first-child th:nth-child(3) {
 	width: 125px;
 }
-.content-t table tr:first-child th:nth-child(4){
+
+.content-t table tr:first-child th:nth-child(4) {
 	width: 150px;
 }
-.content-t table tr:first-child th:nth-child(5){
+
+.content-t table tr:first-child th:nth-child(5) {
 	width: 105px;
 }
-.content-t table tr:first-child th:nth-child(6){
+
+.content-t table tr:first-child th:nth-child(6) {
 	width: 103px;
 }
-.content-t table tr td:nth-child(5){
+
+.content-t table tr td:nth-child(5) {
 	color: #DC0F50;
 	font-size: 12px;
 	font-weight: bold;
 }
-.content-t table tr td:nth-child(6){
+
+.content-t table tr td:nth-child(6) {
 	font-size: 12px;
 }
-.content-b{
+
+.content-b {
 	margin-left: 30px;
 	margin-top: 40px;
 	margin-bottom: 50px;
 }
-.content-b-l{}
-.content-b-l label{
+
+.content-b-l {}
+
+.content-b-l label {
 	margin-right: 25px;
 }
-.content-b-l a:hover{
+
+.content-b-l a:hover {
 	color: #DC0F50;
 }
-.content-b-r{}
-.content-b-r span:first-child{
+
+.content-b-r {}
+
+.content-b-r span:first-child {
 	margin-right: 54px;
 }
-.content-b-r span{
+
+.content-b-r span {
 	margin-right: 24px;
 	color: #999999;
 }
-.content-b-r span i{
+
+.content-b-r span i {
 	color: #DC0F50;
 }
-.content-b-r span b{
+
+.content-b-r span b {
 	color: #DC0F50;
 	font-size: 22px;
 	margin-left: 10px;
 }
-.content-b-r a{
+
+.content-b-r a {
 	padding: 16px 30px;
 	background: #DC0F50;
 	color: white;
 	margin-right: 47px;
 }
+
+
 /*非登录状态*/
-.container{}
-.container>img{
+
+.container {}
+
+.container>img {
 	margin-bottom: 44px;
 }
-.container>p a{
+
+.container>p a {
 	color: blue;
 }
-.container>p a:hover{
+
+.container>p a:hover {
 	color: #DC0F50;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

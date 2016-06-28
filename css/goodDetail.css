@@ -218,7 +218,7 @@
 }
 
 .content-t-r-b span:nth-child(7) input {
-	height: 17px;
+	height: 16px;
 	width: 30px;
 	border-bottom: 1px solid #D6D6D6;
 	border-top: 1px solid #D6D6D6;
@@ -251,6 +251,18 @@
 
 .content-t-r-b b:nth-child(10) {
 	background: url(../img/tui.png)no-repeat left center;
+	background-size: 18px 18px;
+}
+.content-t-r-b b:nth-child(8).no-abord{
+	background: url(../img/zheng.png)no-repeat left center;
+	background-size: 18px 18px;
+}
+.content-t-r-b b:nth-child(9).no-abord{
+	background: url(../img/you.png)no-repeat left center;
+	background-size: 18px 18px;
+}
+.content-t-r-b b:nth-child(10).no-abord{
+	background: url(../img/qi.png)no-repeat left center;
 	background-size: 18px 18px;
 }
 

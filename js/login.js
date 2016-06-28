@@ -9,8 +9,9 @@ $(function() {
 	//用户名输入框的keypress事件，监测是否输入数字，拦截非数字
 	$(".content-r-b form:first-child input:first").keypress(function(e) {
 		//屏蔽非数字键&&屏蔽键码大于9的键（就是保留上下，退格，删除键）&&保留ctrl键
-		if (!/\d/.test(String.fromCharCode(e.charCode)) && e.charCode > 9) {
+		if (!/\d/.test(String.fromCharCode(e.charCode)) && e.charCode > 9&&e.charCode!==13&&!e.ctrlKey) {
 			e.preventDefault();
+			console.log(e.charCode);
 		}
 	});
 	//用户名输入框的blur事件，判断各种情况
@@ -23,7 +24,7 @@ $(function() {
 			$(this).addClass("error").prev().addClass("error");
 		}
 		//如果符合正则，还原样式
-		else if (/^1\d{10}$/.test($(this).val())) {
+		else if (/^((13[0-9])|(15[^4,\D])|(18[0,5-9]))\d{8}$/.test($(this).val())) {
 			$(this).removeClass("error").prev().removeClass("error");
 		} else {
 			$(this).addClass("error").prev().addClass("error");
@@ -94,22 +95,22 @@ $(function() {
 								//将注册信息存入cookie，修改当前处于在线状态的用户
 								$.mySetCookie("online", value[0]["用户名"]);
 								$.mySetCookie("user", JSON.stringify(value), 70 * 24 * 3600 * 1000);
-								//遮罩层部分
-								//显示遮罩层
-								$(cover).show();
-								//倒计时
-								setTimeout(function() {
-									$(cover).find("i").text(2)
-								}, 1000);
-								setTimeout(function() {
-									$(cover).find("i").text(1)
-								}, 2000);
-								setTimeout(function() {
-									$(cover).find("i").text(0)
-								}, 3000);
-								setTimeout(function() {
-									location.href = "index.html";
-								}, 3100);
+//								//遮罩层部分
+//								//显示遮罩层
+//								$(cover).show();
+//								//倒计时
+//								setTimeout(function() {
+//									$(cover).find("i").text(2)
+//								}, 1000);
+//								setTimeout(function() {
+//									$(cover).find("i").text(1)
+//								}, 2000);
+//								
+//								setTimeout(function() {
+//									//location.href = "index.html";
+//									history.back();
+//								}, 3000);
+								history.back();
 								return;
 							}
 						}

@@ -19,7 +19,7 @@ $(function() {
 			$(this).addClass("error").next().addClass("error");
 		}
 		//如果符合正则，还原样式
-		else if (/^1\d{10}$/.test($(this).val())) {
+		else if (/^((13[0-9])|(15[^4,\D])|(18[0,5-9]))\d{8}$/.test($(this).val())) {
 			if (cookieArr != "") {
 				var temp = JSON.parse(cookieArr);
 				for (var i = 0; i < temp.length; i++) {
@@ -141,7 +141,7 @@ $(function() {
 				"data": JSON.stringify({
 					"mobile": $(".content-l input:first").val(),
 					"content": "【家有惠】验证码：" + authCode + "",
-					"tag": "2"
+					"tag": 2
 				}),
 				"dataType": "json",
 				"headers": {
@@ -184,7 +184,8 @@ $(function() {
 					"next": false,
 					"用户名": $(".content-l input:eq(0)").val(),
 					"密码": $(".content-l input:eq(1)").val(),
-					"shopCar": []
+					"shopCar":[],
+					"order":[]
 				};
 
 				if (cookieArr == "") {
@@ -208,12 +209,12 @@ $(function() {
 				setTimeout(function() {
 					$(cover).find("i").text(1)
 				}, 2000);
-				setTimeout(function() {
-					$(cover).find("i").text(0)
-				}, 3000);
+//				setTimeout(function() {
+//					$(cover).find("i").text(0)
+//				}, 3000);
 				setTimeout(function() {
 					location.href = "index.html";
-				}, 3100);
+				}, 3000);
 			}
 		}
 

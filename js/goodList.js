@@ -41,6 +41,8 @@ $(function() {
 	//搜索条件切换与分页部分
 	//搜索条件选项卡点击切换事件
 	$(".content-b-l-m span").click(function() {
+		//加载json文件的索引
+		var fIndex = $(this).index();
 		//改变相应选项卡的样式
 		$(this).addClass("on").siblings("span").removeClass("on");
 		//用于拼接商品信息元素字符串
@@ -103,8 +105,9 @@ $(function() {
 				html = "";
 				$.each(data, function(index, value) {
 					//加载指定页数中的5个内容
+					//拼接a链接的href属性继续拼接json字符串有问题，使用单引号可解决，应该是双引号嵌套过多造成的
 					if (index < 5 * current && index >= (current - 1) * 5) {
-						html += "<li class=\"fl\">" + "<a href=\"goodDetail.html\">" + (value.abord ? "<i></i>" : "") + "<img src=\"" + value.src + "\"/>" + "<p>" + value.description + "</p>" + "<div class=\"a-b clear\">" + "<div class=\"a-b-l fl\">" + "<span>" + value.price + "</span>" + "<p>" + value.sale + "</p>" + "</div>" + "<span class=\"fr\">" + value.oldPrice + "</span>" + "</div>" + "</a>" + "</li>";
+						html += "<li class=\"fl\">" + "<a href='goodDetail.html?"+JSON.stringify({"firstIndex":fIndex,"secondIndex":index})+"' >" + (value.abord ? "<i></i>" : "") + "<img src=\"" + value.brandImg[0] + "\"/>" + "<p>" + value.description + "</p>" + "<div class=\"a-b clear\">" + "<div class=\"a-b-l fl\">" + "<span>" + value.price + "</span>" + "<p>" + value.sale + "</p>" + "</div>" + "<span class=\"fr\">" + value.oldPrice + "</span>" + "</div>" + "</a>" + "</li>";
 					}
 				});
 				//先清空当前ul原先的内容，再动态添加生成的li，并显示他们，同时隐藏同辈元素

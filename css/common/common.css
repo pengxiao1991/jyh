@@ -8,6 +8,7 @@ body {
 
 #header {
 	font-size: 12px;
+	height: 160px;
 }
 
 .header-t {
@@ -20,6 +21,8 @@ body {
 
 .header-t a {
 	color: #666666;
+	
+	
 }
 
 .header-t a:hover {
@@ -41,10 +44,12 @@ body {
 
 .header-t-r ul li.iphone {
 	position: relative;
+	margin-top: -2px;
 }
 
 .header-t-r ul li.wx {
 	position: relative;
+	margin-top: -2px;
 }
 
 .header-t-r ul li span.iphone {
@@ -54,12 +59,18 @@ body {
 	display: inline-block;
 	vertical-align: middle;
 }
+.header-t-r ul li span.iphone+a{
+	vertical-align: middle;
+}
 
 .header-t-r ul li span.wx {
 	background: url(../../img/wx.png);
 	width: 15px;
 	height: 12px;
 	display: inline-block;
+	vertical-align: middle;
+}
+.header-t-r ul li span.wx+a{
 	vertical-align: middle;
 }
 
@@ -118,7 +129,11 @@ body {
 	width: 120px;
 	height: 120px;
 }
-
+.header-t-r ul li:nth-child(5) span{
+	display: inline-block;
+	text-align: center;
+	width: 14px;
+}
 .header-b {
 	height: 130px;
 }
@@ -363,6 +378,9 @@ body {
 	opacity: 0.8;
 }
 /*nav部分样式*/
+#nav{
+	height: 42px;
+}
 .banner-t {
 	border-bottom: 2px solid #dc0f50;
 }

@@ -101,7 +101,7 @@ $(function() {
 	//onTimer的倒计时
 	var timeLine = setInterval(function() {
 		//获取到20：00的倒计时时分秒，返回数组
-		var arr = time(20);
+		var arr = time(21);
 		//如果秒数小于0，停止倒计时
 		if (arr[2] <= 0) {
 			clearInterval(timeLine)
