@@ -134,63 +134,8 @@ $(function() {
 	getHotData("../data/firstHot.json", "content-b-r");
 	//猜你喜欢部分
 	//like猜你喜欢部分
-	$.getJSON("../data/timer.json", function(data) {
-		//将动态获取的数据放到页面上存在的第一个li中
-		$(".like li a").each(function(index) {
-
-			$(this).find("img").prop({
-				"src": data[index].src
-			});
-			$(this).find("b").text(data[index].discount);
-			$(this).find("p").text(data[index].description);
-			$(this).find("span").text(data[index].price);
-			$(this).find("i").text(data[index].oldPrice);
-		});
-		//克隆第一个li放到ul的最后
-		$(".like ul li:first").clone(true).appendTo($(".like ul"));
-
-	});
-	//给like的按钮注册事件
-	startMove("like");
-	//小轮播图的左右按钮注册事件
-	function startMove(className) {
-		//左右按钮的点击事件
-		var count = 0;
-		$("." + className + " .leftBtn").click(function() {
-
-			if (count == 2) {
-				$("." + className + " ul").css({
-					"left": 0
-				});
-				count = 0;
-				$("." + className + " ul").stop().animate({
-					"left": -$("." + className + "-b li").innerWidth() * (++count)
-				}, 200);
-			} else {
-				$("." + className + " ul").stop().animate({
-					"left": -$("." + className + "-b li").innerWidth() * (++count)
-				}, 200);
-			}
-
-		});
-		$("." + className + " .rightBtn").click(function() {
-
-			if (count == 0) {
-				$("." + className + " ul").css({
-					"left": -$("." + className + "-b li").innerWidth() * 2
-				});
-				count = 2;
-				$("." + className + " ul").stop().animate({
-					"left": -$("." + className + "-b li").innerWidth() * (--count)
-				}, 200);
-			} else {
-				$("." + className + " ul").stop().animate({
-					"left": -$("." + className + "-b li").innerWidth() * (--count)
-				}, 200);
-			}
-
-		});
-	}
+	smallCarousel("like","discount");
+	
 	//图片的hover特效
 	$("img", ".onTimer,.onAir,.like").picHover(200, 200, "#fff", "#dc0f50", 2);
 	//文字的hover特效

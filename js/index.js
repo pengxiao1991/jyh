@@ -60,48 +60,16 @@ $(function() {
 
 	//onAir直播部分
 	//从json中获取商品信息
-	$.getJSON("../data/onAir.json", function(data) {
+	smallCarousel("onAir","time");
 
-		$(".onAir-b li a").each(function(index) {
-
-			$(this).find("img").prop({
-				"src": data[index].src
-			});
-			$(this).find("b").text(data[index].time);
-			$(this).find("p").text(data[index].description);
-			$(this).find("span").text(data[index].price);
-			$(this).find("i").text(data[index].oldPrice);
-		});
-		//克隆第一个li放到ul的最后
-		$(".onAir ul li:first").clone(true).appendTo($(".onAir ul"));
-
-	});
-	//给onAir的按钮注册事件
-	startMove("onAir");
 
 	//onTimer限时抢购部分
-	$.getJSON("../data/timer.json", function(data) {
+	smallCarousel("onTimer","discount");
 
-		$(".onTimer-b li a").each(function(index) {
-
-			$(this).find("img").prop({
-				"src": data[index].src
-			});
-			$(this).find("b").text(data[index].discount);
-			$(this).find("p").text(data[index].description);
-			$(this).find("span").text(data[index].price);
-			$(this).find("i").text(data[index].oldPrice);
-		});
-		//克隆第一个li放到ul的最后
-		$(".onTimer ul li:first").clone(true).appendTo($(".onTimer ul"));
-
-	});
-	//给onTimer的按钮注册事件
-	startMove("onTimer");
 	//onTimer的倒计时
 	var timeLine = setInterval(function() {
 		//获取到20：00的倒计时时分秒，返回数组
-		var arr = time(21);
+		var arr = time(23);
 		//如果秒数小于0，停止倒计时
 		if (arr[2] <= 0) {
 			clearInterval(timeLine)
@@ -112,7 +80,7 @@ $(function() {
 			});
 		}
 	}, 900);
-	$(".onTimer-t>p span")
+	
 		//一楼部分,从json中获得热销数据
 	getHotData("../data/firstHot.json", "first-floor");
 	//二楼部分
@@ -149,24 +117,8 @@ $(function() {
 	});
 	//猜你喜欢部分
 	//like猜你喜欢部分
-	$.getJSON("../data/timer.json", function(data) {
+	smallCarousel("like","discount");
 
-		$(".like li a").each(function(index) {
-
-			$(this).find("img").prop({
-				"src": data[index].src
-			});
-			$(this).find("b").text(data[index].discount);
-			$(this).find("p").text(data[index].description);
-			$(this).find("span").text(data[index].price);
-			$(this).find("i").text(data[index].oldPrice);
-		});
-		//克隆第一个li放到ul的最后
-		$(".like ul li:first").clone(true).appendTo($(".like ul"));
-
-	});
-	//给like的按钮注册事件
-	startMove("like");
 	//楼梯部分
 	//标志位，判断是否是点击了楼层
 	var isClick = false;
@@ -229,43 +181,5 @@ $(function() {
 		return [hours, minutes, seconds];
 
 	}
-	//小轮播图的左右按钮注册事件
-	function startMove(className) {
-		//左右按钮的点击事件
-		var count = 0;
-		$("." + className + " .leftBtn").click(function() {
-
-			if (count == 2) {
-				$("." + className + " ul").css({
-					"left": 0
-				});
-				count = 0;
-				$("." + className + " ul").stop().animate({
-					"left": -$("." + className + "-b li").innerWidth() * (++count)
-				}, 200);
-			} else {
-				$("." + className + " ul").stop().animate({
-					"left": -$("." + className + "-b li").innerWidth() * (++count)
-				}, 200);
-			}
-
-		});
-		$("." + className + " .rightBtn").click(function() {
-
-			if (count == 0) {
-				$("." + className + " ul").css({
-					"left": -$("." + className + "-b li").innerWidth() * 2
-				});
-				count = 2;
-				$("." + className + " ul").stop().animate({
-					"left": -$("." + className + "-b li").innerWidth() * (--count)
-				}, 200);
-			} else {
-				$("." + className + " ul").stop().animate({
-					"left": -$("." + className + "-b li").innerWidth() * (--count)
-				}, 200);
-			}
-
-		});
-	}
+	
 });

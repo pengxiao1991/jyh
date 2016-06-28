@@ -169,9 +169,88 @@
 	}
 })();
 
-//尾部js
+function smallCarousel(className,type){
+	$.getJSON("../data/smallCarousel.json", function(data) {
+
+		$("."+className+" li a").each(function(index) {
+
+			$(this).find("img").prop({
+				"src": data[index].src
+			});
+			if (type=="discount") {
+				$(this).find("b").text(data[index].discount);
+			}
+			else{
+				$(this).find("b").text(data[index].time);
+			}
+			$(this).find("p").text(data[index].description);
+			$(this).find("span").text(data[index].price);
+			$(this).find("i").text(data[index].oldPrice);
+		});
+		//克隆第一个li放到ul的最后
+		$("."+className+" ul li:first").clone(true).appendTo($("."+className+" ul"));
+
+	});
+	//给like的按钮注册事件
+	startMove(""+className+"");
+	//小轮播图的左右按钮注册事件
+	function startMove(className) {
+		//左右按钮的点击事件
+		var count = 0;
+		$("." + className + " .leftBtn").click(function() {
+
+			if (count == 2) {
+				$("." + className + " ul").css({
+					"left": 0
+				});
+				count = 0;
+				$("." + className + " ul").stop().animate({
+					"left": -$("." + className + "-b li").innerWidth() * (++count)
+				}, 200);
+			} else {
+				$("." + className + " ul").stop().animate({
+					"left": -$("." + className + "-b li").innerWidth() * (++count)
+				}, 200);
+			}
+
+		});
+		$("." + className + " .rightBtn").click(function() {
+
+			if (count == 0) {
+				$("." + className + " ul").css({
+					"left": -$("." + className + "-b li").innerWidth() * 2
+				});
+				count = 2;
+				$("." + className + " ul").stop().animate({
+					"left": -$("." + className + "-b li").innerWidth() * (--count)
+				}, 200);
+			} else {
+				$("." + className + " ul").stop().animate({
+					"left": -$("." + className + "-b li").innerWidth() * (--count)
+				}, 200);
+			}
+
+		});
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//尾部js，当滚动到尾部是在加载
 (function() {
-	//载入头部html结构内容
+	//载入尾部html结构内容
 	$.ajax({
 		"url": "common/footer.html",
 		"async": false,
@@ -211,6 +290,9 @@
 	});
 	//加载页面时先调用一次，看看是否应该显示回到顶部按钮
 	$(window).trigger("scroll");
+		
+	
+	
 
 })();
 //});
