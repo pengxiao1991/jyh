@@ -14,6 +14,7 @@ $(function() {
 	});
 
 	//轮播图
+	
 	$.getJSON("../data/carouselBanner.json", function(data) {
 
 		$(".banner-b-c-t").carouselBanner({
@@ -103,45 +104,72 @@ $(function() {
 	
 	//从json中获得指定楼层的热销数据
 	function getHotData(url, className) {
-		$.getJSON(url, function(data) {
-			//遍历通过json获得的数据，将其设置到指定类名的热销榜上
-			$.each(data, function(index, value) {
-				var $li = $("." + className + " .floor-b-r li").eq(index);
-				$li.find("img")[0].src = value.src;
-				$li.find("p")[0].innerHTML = value.description;
-				$li.find("span:last")[0].innerHTML = value.price;
-			});
+		$.ajax({
+			"type":"get",
+			"url":url,
+			"async":true,
+			"dataType":"json",
+			"success":function(data){
+				//遍历通过json获得的数据，将其设置到指定类名的热销榜上
+				$.each(data, function(index, value) {
+					var $li = $("." + className + " .floor-b-r li").eq(index);
+					$li.find("img")[0].src = value.src;
+					$li.find("p")[0].innerHTML = value.description;
+					$li.find("span:last")[0].innerHTML = value.price;
+				});
+			},
+			"beforeSend":function(){
+				var $li = $("." + className + " .floor-b-r li");
+				$li.find("img").attr({"src":"../img/loading.gif"});
+			}
 		});
+		
 	}
 	
 	//从json中获取指定楼层的主体信息
 	function getMainData(className){
-		$.getJSON("../data/floorData.json", function(data) {
-			//通过json获得的数据，将其设置到指定类名的对应的结构上
+		$.ajax({
+			"type":"get",
+			"url":"../data/floorData.json",
+			"async":true,
+			"dataType":"json",
+			"success":function(data){
+				//通过json获得的数据，将其设置到指定类名的对应的结构上
 		
-			var $far = $("." + className + " .floor-b");
-			$(".floor-b-l-t a img",$far).attr({"src":data[className].bannerImg[0]});
-			$(".floor-b-c-b a img:first",$far).attr({"src":data[className].bannerImg[1]});
-			$(".floor-b-c-b a img:eq(1)",$far).attr({"src":data[className].bannerImg[2]});
-			$(".floor-b-c-b a img:last",$far).attr({"src":data[className].bannerImg[3]});
-			$(".floor-b-l-b li a img",$far).each(function(index){
-				$(this).attr({"src":data[className].footerImg[index]});
-			});
-			
+				var $far = $("." + className + " .floor-b");
+				$(".floor-b-l-t a img",$far).attr({"src":data[className].bannerImg[0]});
+				$(".floor-b-c-b a img:first",$far).attr({"src":data[className].bannerImg[1]});
+				$(".floor-b-c-b a img:eq(1)",$far).attr({"src":data[className].bannerImg[2]});
+				$(".floor-b-c-b a img:last",$far).attr({"src":data[className].bannerImg[3]});
+				$(".floor-b-l-b li a img",$far).each(function(index){
+					$(this).attr({"src":data[className].footerImg[index]});
+				});
+			},
+			"beforeSend":function(){
+				var $far = $("." + className + " .floor-b");
+				$(".floor-b-l-t a img",$far).attr({"src":"../img/loading.gif"});
+				$(".floor-b-c-b a img:first",$far).attr({"src":"../img/loading.gif"});
+				$(".floor-b-c-b a img:eq(1)",$far).attr({"src":"../img/loading.gif"});
+				$(".floor-b-c-b a img:last",$far).attr({"src":"../img/loading.gif"});
+				$(".floor-b-l-b li a img",$far).each(function(index){
+					$(this).attr({"src":"../img/loading.gif"});
+				});
+			}
 		});
+	
 	}
 	//为对应的楼层创造手风琴
 	function createAccordion(className){
 		$.getJSON("../data/accordion.json", function(data) {
-		$(".floor-b-c-t","."+className+"").accordion({
-			"width": 580,
-			"height": 310,
-			"left": 50,
-			"imgSrc": data[className].imgSrc,
-			"aHref":data[className].aHref
-		});
+			$(".floor-b-c-t","."+className+"").accordion({
+				"width": 580,
+				"height": 310,
+				"left": 50,
+				"imgSrc": data[className].imgSrc,
+				"aHref":data[className].aHref
+			});
 		
-	});
+		});
 	}
 	
 	//猜你喜欢部分

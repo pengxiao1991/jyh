@@ -141,7 +141,7 @@ $(function() {
 				"data": JSON.stringify({
 					"mobile": $(".content-l input:first").val(),
 					"content": "【家有惠】验证码：" + authCode + "",
-					"tag": 2
+					"tag":2
 				}),
 				"dataType": "json",
 				"headers": {
@@ -149,6 +149,8 @@ $(function() {
 				},
 				"complete": function(data) {
 					console.log(data.responseText);
+					console.log($(".content-l input:first").val());
+					
 				}
 			});
 			//定时器，为了防止多次连续发送短信
