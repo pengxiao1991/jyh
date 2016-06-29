@@ -1,6 +1,7 @@
 //加载商品信息部分
 //获取url传递过来的参数，fisrtIndex为访问json的索引，secondIndex为该商品在json文件中的索引
 var jsonObj = JSON.parse(decodeURI(location.search.slice(1)));
+
 $(function(){
 	
 	//向网页结构中传入数据
@@ -63,10 +64,19 @@ $(function(){
 			//加载商品详情的图片
 			html = "";
 			for (var i = 0; i < goodInf.detailImg.length; i++) {
-				html+="<li><img src=\""+goodInf.detailImg[i]+"\" /></li>";
+				html+="<li><img src=\"\" /></li>";
 				
 			}
 			$(".detail ul").html(html);
+			//根据滚动加载当前图片
+			$(".detail ul li img").each(function(index){
+				loadUntil($(this),function(){
+					console.log("1");
+					console.log($(".detail ul li img"));
+					$(".detail ul li img").eq(index).attr({"src":goodInf.detailImg[index]});
+				});
+			});
+			
 			//加载规格参数的信息
 			html = "";
 			for (var i = 0; i < goodInf.paramName.length; i++) {
@@ -80,12 +90,13 @@ $(function(){
 			if (goodInf.abord==false) {
 				$(".content-b-t span:last").remove();
 			}
+			
 		}
 	});
 })
 //注册事件部分
 $(function(){
-
+	
 	//放大镜部分
 	$(".content-t-c").enlarge(480,480,3,$(".content-t-l ul li img:first").attr("src"));
 	//放大镜左侧部分li列表项的点击事件,点击后给放大镜更换图片

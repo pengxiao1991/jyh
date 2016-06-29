@@ -8,7 +8,7 @@
 			$(nav).html(data);
 		}
 	});
-	//一级级菜单,进入时改变背景颜色和字体颜色，离开时还原背景颜色和字体颜色
+	//一级菜单,进入时改变背景颜色和字体颜色，离开时还原背景颜色和字体颜色
 	$(".erji").parent().hover(function() {
 		$(this).find("div").show().prev().css({
 			"background": "#DC0F50",
@@ -20,7 +20,7 @@
 			"color": "#333"
 		});
 	});
-	//离开一级菜单
+	//离开二级菜单
 	$(".banner-b-l").mouseleave(function(e) {
 		$(".banner-b-l").hide();
 	});

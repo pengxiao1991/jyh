@@ -71,9 +71,9 @@
 			this.nav = document.createElement("div");
 			//为导航div添加内容
 			for (var i = 0; i < this.srcArr.length - 1; i++) {
-				this.nav.innerHTML += "<span style=\"margin-right:" + this.navBtnMargin + "px;text-align:center;display:inline-block;width:" + this.navBtnWidth + "px;height:" + this.navBtnHeight + "px;line-height:" + this.navBtnHeight + "px;\">" + (i + 1) + "</span>";
+				this.nav.innerHTML += "<span style=\"margin-right:" + this.navBtnMargin + "px;text-align:center;cursor:pointer;display:inline-block;width:" + this.navBtnWidth + "px;height:" + this.navBtnHeight + "px;line-height:" + this.navBtnHeight + "px;\">" + (i + 1) + "</span>";
 			}
-			this.nav.innerHTML += "<span style=\"text-align:center;display:inline-block;width:" + this.navBtnWidth + "px;height:" + this.navBtnHeight + "px;line-height:" + this.navBtnHeight + "px;\">" + (this.srcArr.length) + "</span>";
+			this.nav.innerHTML += "<span style=\"text-align:center;display:inline-block;cursor:pointer;width:" + this.navBtnWidth + "px;height:" + this.navBtnHeight + "px;line-height:" + this.navBtnHeight + "px;\">" + (this.srcArr.length) + "</span>";
 			this.innerContainer.appendChild(this.nav);
 
 			//offsetWidth要想访问真正的宽度，必须元素存在文档之中，设定宽度的语句要在它
@@ -221,6 +221,7 @@
 	$.fn.extend({
 		"carouselBanner": function(json) {
 			new Carousel(this[0], json);
+			return this;
 		}
 	});
 

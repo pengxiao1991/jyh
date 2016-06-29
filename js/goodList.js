@@ -75,6 +75,8 @@ $(function() {
 					current--;
 				}
 				loadContent(current);
+				//视口跳到商品内容主体部分
+				$(window).scrollTop($(".content-b-l-m").offset().top);
 			});
 			//下一页
 			$(".content-b-l-b li:last a").click(function() {
@@ -84,19 +86,27 @@ $(function() {
 					current++;
 				}
 				loadContent(current);
+				//视口跳到商品内容主体部分
+				$(window).scrollTop($(".content-b-l-m").offset().top);
 			});
 			//中间的按钮
 			$(".content-b-l-b li a").slice(1, -1).click(function() {
 				current = $(this).text();
 				loadContent(current);
+				//视口跳到商品内容主体部分
+				$(window).scrollTop($(".content-b-l-m").offset().top);
+				
 			});
 			//跳页按钮的点击事件
 			$(".content-b-l-b>span a").click(function() {
 				current = $(this).prev().val();
 				loadContent(current);
+				//视口跳到商品内容主体部分
+				$(window).scrollTop($(".content-b-l-m").offset().top);
 			});
 			//动态加载指定页的内容部分
 			function loadContent(current) {
+				
 				//改变跳转框内的数字
 				$(".content-b-l-b>span input").val(current);
 				//改变所选择按钮的样式

@@ -551,10 +551,12 @@
 
 .floor-b-l-t a {
 	display: block;
+	height: 376px;
 }
 
 .floor-b-l-t a img {
 	width: 100%;
+	
 }
 
 .floor-b-l-b {
@@ -588,10 +590,14 @@
 
 .floor-b-c-b {}
 
-.floor-b-c-b a {}
+.floor-b-c-b a {
+	
+}
 
 .floor-b-c-b a img {
+	
 	width: 190px;
+	height: 190px;
 }
 
 .floor-b-r {}

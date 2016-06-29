@@ -59,19 +59,16 @@ $(function() {
 	}
 
 	//onAir直播部分
-	//从json中获取商品信息
-	smallCarousel("onAir","time");
-
-
+	loadUntil($(".onAir"),smallCarousel,"onAir","time")
 	//onTimer限时抢购部分
-	smallCarousel("onTimer","discount");
+	loadUntil($(".onTimer"),smallCarousel,"onTimer","discount")
 
 	//onTimer的倒计时
 	var timeLine = setInterval(function() {
 		//获取到20：00的倒计时时分秒，返回数组
-		var arr = time(23);
+		var arr = time(20);
 		//如果秒数小于0，停止倒计时
-		if (arr[2] <= 0) {
+		if (arr[2] < 0) {
 			clearInterval(timeLine)
 			$(".onTimer-t>p span").text("00");
 		} else {
@@ -81,17 +78,30 @@ $(function() {
 		}
 	}, 900);
 	
-		//一楼部分,从json中获得热销数据
-	getHotData("../data/firstHot.json", "first-floor");
+	//一楼部分,
+	loadUntil($(".first-floor"),getHotData,"../data/firstHot.json","first-floor");
+	loadUntil($(".first-floor"),createAccordion,"first-floor");
+	loadUntil($(".first-floor"),getMainData,"first-floor");
+	
 	//二楼部分
-	getHotData("../data/firstHot.json", "second-floor");
+	loadUntil($(".second-floor"),getHotData,"../data/firstHot.json","second-floor");
+	loadUntil($(".second-floor"),createAccordion,"second-floor");
+	loadUntil($(".second-floor"),getMainData,"second-floor");
+	
 	//三楼部分
-	getHotData("../data/firstHot.json", "third-floor");
+	loadUntil($(".third-floor"),getHotData,"../data/firstHot.json","third-floor");
+	loadUntil($(".third-floor"),createAccordion,"third-floor");
+	loadUntil($(".third-floor"),getMainData,"third-floor");
 	//四楼部分
-	getHotData("../data/firstHot.json", "fourth-floor");
+	loadUntil($(".fourth-floor"),getHotData,"../data/firstHot.json","fourth-floor");
+	loadUntil($(".fourth-floor"),createAccordion,"fourth-floor");
+	loadUntil($(".fourth-floor"),getMainData,"fourth-floor");
 	//五楼部分
-	getHotData("../data/firstHot.json", "fifth-floor");
-	//从json中获得热销数据
+	loadUntil($(".fifth-floor"),getHotData,"../data/firstHot.json","fifth-floor");
+	loadUntil($(".fifth-floor"),createAccordion,"fifth-floor");
+	loadUntil($(".fifth-floor"),getMainData,"fifth-floor");
+	
+	//从json中获得指定楼层的热销数据
 	function getHotData(url, className) {
 		$.getJSON(url, function(data) {
 			//遍历通过json获得的数据，将其设置到指定类名的热销榜上
@@ -103,21 +113,41 @@ $(function() {
 			});
 		});
 	}
-	//手风琴部分，从json中获取图片信息
-	$.getJSON("../data/accordion.json", function(data) {
-		$(".floor-b-c-t").each(function(index) {
-
-			$(this).accordion({
-				"width": 580,
-				"height": 310,
-				"left": 50,
-				"imgSrc": data[index + ""]
+	
+	//从json中获取指定楼层的主体信息
+	function getMainData(className){
+		$.getJSON("../data/floorData.json", function(data) {
+			//通过json获得的数据，将其设置到指定类名的对应的结构上
+		
+			var $far = $("." + className + " .floor-b");
+			$(".floor-b-l-t a img",$far).attr({"src":data[className].bannerImg[0]});
+			$(".floor-b-c-b a img:first",$far).attr({"src":data[className].bannerImg[1]});
+			$(".floor-b-c-b a img:eq(1)",$far).attr({"src":data[className].bannerImg[2]});
+			$(".floor-b-c-b a img:last",$far).attr({"src":data[className].bannerImg[3]});
+			$(".floor-b-l-b li a img",$far).each(function(index){
+				$(this).attr({"src":data[className].footerImg[index]});
 			});
+			
 		});
+	}
+	//为对应的楼层创造手风琴
+	function createAccordion(className){
+		$.getJSON("../data/accordion.json", function(data) {
+		$(".floor-b-c-t","."+className+"").accordion({
+			"width": 580,
+			"height": 310,
+			"left": 50,
+			"imgSrc": data[className].imgSrc,
+			"aHref":data[className].aHref
+		});
+		
 	});
+	}
+	
 	//猜你喜欢部分
 	//like猜你喜欢部分
-	smallCarousel("like","discount");
+	loadUntil($(".like"),smallCarousel,"like","discount");
+	
 
 	//楼梯部分
 	//标志位，判断是否是点击了楼层
@@ -141,7 +171,9 @@ $(function() {
 			if (!isClick) {
 				//滚动到每一层时，选中当前楼层
 				$(".floor").each(function(index) {
+					
 					if ($(window).scrollTop() >= $(this).offset().top - $(this).outerHeight() / 2) {
+
 						$(".stairs li").eq(index).addClass("on").siblings().removeClass("on");
 					}
 				});
@@ -167,7 +199,7 @@ $(function() {
 			"color": "#333"
 		});
 	});
-	//倒计时函数，得到到20：00之前的时分秒
+	//倒计时函数，得到到指定小时之前的时分秒
 	function time(hour) {
 		var now = Date.now();
 		var end = new Date();
@@ -177,7 +209,6 @@ $(function() {
 		var seconds = parseInt(((end.getTime() - now) / 1000) % 60);
 		var minutes = parseInt(((end.getTime() - now) / 1000 / 60) % 60);
 		var hours = parseInt(((end.getTime() - now) / 1000 / 60 / 60));
-
 		return [hours, minutes, seconds];
 
 	}

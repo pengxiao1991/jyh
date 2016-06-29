@@ -78,6 +78,7 @@
 					"height": 0
 				}, 400);
 			});
+			return this;
 		}
 	});
 

@@ -335,6 +335,10 @@
 	text-align: center;
 	display: none;
 }
+.content-b-b .detail ul li img{
+	width: 1080px;
+	height: 889px;
+}
 
 .content-b-b .argument {
 	display: none;

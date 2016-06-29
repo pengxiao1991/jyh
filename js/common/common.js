@@ -26,14 +26,14 @@
 	} else {
 		for (var i = 0; i < value.length; i++) {
 			//寻找设置了下次自动登录的用户
-			if (value[i].next == true && confirm("是否使用账户：" + value[i]["用户名"] + "来登录")) {
+			if (value[i].next == true && confirm("是否使用账户：" + value[i]["name"] + "来登录")) {
 				//交换当前登录的账户和第一个账户交换
 				var temp;
 				temp = value[0];
 				value[0] = value[i];
 				value[i] = temp;
 				//将注册信息存入cookie，修改当前处于在线状态的用户
-				$.mySetCookie("online", value[0]["用户名"]);
+				$.mySetCookie("online", value[0]["name"]);
 				$.mySetCookie("user", JSON.stringify(value), 70 * 24 * 3600 * 1000);
 				loadUserInfo(value[0]);
 				break;
@@ -86,7 +86,7 @@
 			numSum = numSum + (obj.shopCar[i].count - 0);
 			priceSum = priceSum + obj.shopCar[i].count * obj.shopCar[i].price.slice(1) * 100;
 		}
-		var str = "hi！ " + obj["用户名"].slice(0, 3) + "****" + obj["用户名"].slice(-4);
+		var str = "hi！ " + obj["name"].slice(0, 3) + "****" + obj["name"].slice(-4);
 		//改变登录的用户名显示
 		$(".header-t-r ul li a").eq(1).text(str).css({
 			"color": "#dc0f50"
@@ -168,7 +168,7 @@
 		}
 	}
 })();
-
+//小轮播图封装的函数
 function smallCarousel(className,type){
 	$.getJSON("../data/smallCarousel.json", function(data) {
 
@@ -234,7 +234,23 @@ function smallCarousel(className,type){
 	}
 }
 
-
+//滚动到当前内容的中间部分，执行指定的函数
+function loadUntil($obj,fn){
+	var temp = [];
+	//将传入的其他参数存储起来
+	for (var i = 2; i < arguments.length; i++) {
+		temp.push("'"+arguments[i]+"'");
+	}
+	
+	var flag = true;
+	$(window).on("scroll",function(){
+		//如果滚动到指定对象中间
+		if (($(this).scrollTop()>=$obj.offset().top-$(this).height()+$obj.outerHeight(true)/2)&&($(this).scrollTop()<=$obj.offset().top+$obj.outerHeight(true)/2)&&flag) {
+			flag = false;
+			eval("fn("+temp.join(",")+")");
+		}
+	});
+}
 
 
 

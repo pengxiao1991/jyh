@@ -1,5 +1,7 @@
 //手风琴插件
-//json数据具体为{"width":300,"height":200,"left":50,"imgSrc":[]}
+//json数据具体为{"width":300,"height":200,"left":50,
+//"imgSrc":[],"aHref":[]}
+//aHref为图片对应的跳转页
 ;
 (function($) {
 
@@ -30,7 +32,8 @@
 				"position": "relative",
 				"width": this.json.width,
 				"height": this.json.height,
-				"overflow": "hidden"
+				"overflow": "hidden",
+				"cursor":"pointer"
 			}).html(html);
 		},
 		"startMove": function() {
@@ -42,12 +45,18 @@
 					that.count = $(this).index() + 1;
 					//如果该图片位于左侧，(that.json.imgSrc.length-0.9)*that.json.left为最后一张图的偏移大一点的距离
 					if ($(this).position().left < (that.json.imgSrc.length - 0.9) * that.json.left) {
+						//如果其后的位于左侧的图片已经是移动到右边,或者是最右边的一张图，就跳转
+						if ($(this).next().length==0||$(this).next().position().left>(that.json.imgSrc.length - 0.9) * that.json.left) {
+							location.href = that.json.aHref[$(this).index()];
+							return;
+						}
 						//将其后的位于左侧的图片，移动到右边
 						$(this).nextAll().filter(function() {
 							return $(this).position().left < (that.json.imgSrc.length - 0.9) * that.json.left;
 						}).animate({
 							"left": "+=" + ($(this).width() - that.json.left)
 						}, 500);
+						
 
 					} else {
 
@@ -82,7 +91,7 @@
 				}
 
 			}, 2000);
-			//进入时清除定时器，离开是新开一个定时器
+			//进入时清除定时器，离开时新开一个定时器
 			that.$element.hover(function() {
 
 				clearInterval(that.timer);
@@ -104,6 +113,7 @@
 		"accordion": function(json) {
 
 			new Accordion(this, json);
+			return this;
 		}
 	});
 })(jQuery)

@@ -6,15 +6,16 @@ $(function() {
 		$(".content-r-b form").eq($(this).index()).addClass("on").siblings().removeClass("on");
 	});
 
-	//用户名输入框的keypress事件，监测是否输入数字，拦截非数字
+	//name输入框的keypress事件，监测是否输入数字，拦截非数字
 	$(".content-r-b form:first-child input:first").keypress(function(e) {
 		//屏蔽非数字键&&屏蔽键码大于9的键（就是保留上下，退格，删除键）&&保留ctrl键
 		if (!/\d/.test(String.fromCharCode(e.charCode)) && e.charCode > 9&&e.charCode!==13&&!e.ctrlKey) {
 			e.preventDefault();
-			console.log(e.charCode);
+			
 		}
 	});
-	//用户名输入框的blur事件，判断各种情况
+	
+	//name输入框的blur事件，判断各种情况
 	$(".content-r-b form:first-child input:first").blur(function() {
 		//如果输入框为空，还原样式
 		if ($(this).val().length == 0) {
@@ -31,7 +32,7 @@ $(function() {
 		}
 
 	});
-	//用户名输入框的focus事件，去除警告状态
+	//name输入框的focus事件，去除警告状态
 	$(".content-r-b form:first-child input:first").focus(function() {
 		$(this).removeClass("error").prev().removeClass("error");
 	});
@@ -71,9 +72,9 @@ $(function() {
 					//所有用户信息
 					value = JSON.parse(value);
 					for (var i = 0; i < value.length; i++) {
-						if (value[i]["用户名"] == name) {
+						if (value[i]["name"] == name) {
 							//密码错误
-							if (password !== value[i]["密码"]) {
+							if (password !== value[i]["password"]) {
 
 								$(".content-r-b form:first-child input:eq(1)").addClass("error").prev().addClass("error");
 							} else {
@@ -93,7 +94,7 @@ $(function() {
 								value[0] = value[i];
 								value[i] = temp;
 								//将注册信息存入cookie，修改当前处于在线状态的用户
-								$.mySetCookie("online", value[0]["用户名"]);
+								$.mySetCookie("online", value[0]["name"]);
 								$.mySetCookie("user", JSON.stringify(value), 70 * 24 * 3600 * 1000);
 //								//遮罩层部分
 //								//显示遮罩层
@@ -111,6 +112,7 @@ $(function() {
 //									history.back();
 //								}, 3000);
 								history.back();
+								location.href = document.referrer;
 								return;
 							}
 						}

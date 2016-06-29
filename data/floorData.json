@@ -1,0 +1,27 @@
+{
+"first-floor":{
+	"bannerImg":["../img/baoyou.jpg","../img/tvrexiao.jpg","../img/kaiqi.jpg","../img/jiajushou.jpg"],
+	"footerImg":["../img/fuan.jpg","../img/baoyouxiao.jpg","../img/jiyou.jpg","../img/boyang.jpg","../img/taili.jpg","../img/bailu.jpg"]
+		
+},
+"second-floor":{
+	"bannerImg":["../img/geini.jpg","../img/jingxiang.jpg","../img/xinji.jpg","../img/caizhuang.jpg"],
+	"footerImg":["../img/hansu.jpg","../img/hualiao.jpg","../img/huawang.jpg","../img/kk.jpg","../img/baoyou.jpg","../img/loreal.jpg","../img/vs.jpg"]
+		
+},
+"third-floor":{
+	"bannerImg":["../img/hehu.jpg","../img/chengzhang.jpg","../img/meilv.jpg","../img/tiesheng.jpg"],
+	"footerImg":["../img/coach.jpg","../img/casio.jpg","../img/bayu.jpg","../img/kuba.jpg","../img/lexon.jpg","../img/puma.jpg"]
+		
+},
+"fourth-floor":{
+	"bannerImg":["../img/zibu.jpg","../img/quanqiu.jpg","../img/xiuxian.jpg","../img/yangsheng.jpg"],
+	"footerImg":["../img/nongbo.jpg","../img/hamu.jpg","../img/yingge.jpg","../img/tangcheng.jpg","../img/wuliang.jpg","../img/zhongliang.jpg"]
+		
+},
+"fifth-floor":{
+	"bannerImg":["../img/fangtai.jpg","../img/chuxia.jpg","../img/yuanzhi.jpg","../img/qingliang.jpg"],
+	"footerImg":["../img/meidi.jpg","../img/hurom.jpg","../img/supor.jpg","../img/aux1.jpg","../img/jiuyang.jpg","../img/gelan.jpg"]
+		
+}}
+

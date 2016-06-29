@@ -23,7 +23,7 @@ $(function() {
 			if (cookieArr != "") {
 				var temp = JSON.parse(cookieArr);
 				for (var i = 0; i < temp.length; i++) {
-					if (temp[i]["用户名"] == $(this).val()) {
+					if (temp[i]["name"] == $(this).val()) {
 						alert("用户名已存在");
 						$(this).addClass("error").next().addClass("error");
 						return;
@@ -182,8 +182,8 @@ $(function() {
 				var value = {
 					//下次是否自动登录
 					"next": false,
-					"用户名": $(".content-l input:eq(0)").val(),
-					"密码": $(".content-l input:eq(1)").val(),
+					"name": $(".content-l input:eq(0)").val(),
+					"password": $(".content-l input:eq(1)").val(),
 					"shopCar":[],
 					"order":[]
 				};
@@ -196,7 +196,7 @@ $(function() {
 					cookieArr.unshift(value);
 				}
 				//将注册信息存入cookie，修改当前处于在线状态的用户
-				$.mySetCookie("online", cookieArr[0]["用户名"]);
+				$.mySetCookie("online", cookieArr[0]["name"]);
 				$.mySetCookie("user", JSON.stringify(cookieArr), 70 * 24 * 3600 * 1000);
 
 				//遮罩层部分
