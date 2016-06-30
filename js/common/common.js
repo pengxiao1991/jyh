@@ -234,47 +234,6 @@ function smallCarousel(className,type){
 	}
 }
 
-//滚动到当前内容的中间部分，执行指定的函数
-function loadUntil($obj,fn){
-	var temp = [];
-	//将传入的其他参数存储起来
-	for (var i = 2; i < arguments.length; i++) {
-		temp.push("'"+arguments[i]+"'");
-	}
-	
-	var flag = true;
-	$(window).on("scroll",function(){
-		//如果滚动到指定对象中间
-		if (($(this).scrollTop()>=$obj.offset().top-$(this).height())&&($(this).scrollTop()<=$obj.offset().top+$obj.outerHeight())&&flag) {
-			
-			clearTimeout(document.timer);
-			document.timer = setTimeout(function(){
-				eval("fn("+temp.join(",")+")");
-				flag = false;
-				$(window).scroll();
-			},50);
-		}
-	});
-//	document.addEventListener("mousewheel",function(e){
-//		//如果滚动到指定对象中间
-//		
-//		if (($(window).scrollTop()>=$obj.offset().top-$(window).height())&&($(window).scrollTop()<=$obj.offset().top+$obj.outerHeight())&&flag) {
-//			flag = false;
-//			eval("fn("+temp.join(",")+")");
-//		}
-//	},false)
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 //尾部js，当滚动到尾部是在加载

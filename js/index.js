@@ -61,9 +61,9 @@ $(function() {
 	}
 
 	//onAir直播部分
-	loadUntil($(".onAir"),smallCarousel,"onAir","time")
+	$(".onAir").jdLoad(smallCarousel,"onAir","time")
 	//onTimer限时抢购部分
-	loadUntil($(".onTimer"),smallCarousel,"onTimer","discount")
+	$(".onTimer").jdLoad(smallCarousel,"onTimer","discount")
 
 	//onTimer的倒计时
 	var timeLine = setInterval(function() {
@@ -84,7 +84,7 @@ $(function() {
 	//loadUntil($(".first-floor"),getHotData,"../data/firstHot.json","first-floor");
 	//loadUntil($(".first-floor"),createAccordion,"first-floor");
 	//loadUntil($(".first-floor"),getMainData,"first-floor");
-	loadUntil($(".first-floor"),function(){
+	$(".first-floor").jdLoad(function(){
 		getHotData("../data/firstHot.json","first-floor");
 		createAccordion("first-floor");
 		getMainData("first-floor");
@@ -93,7 +93,7 @@ $(function() {
 	//loadUntil($(".second-floor"),getHotData,"../data/firstHot.json","second-floor");
 	//loadUntil($(".second-floor"),createAccordion,"second-floor");
 	//loadUntil($(".second-floor"),getMainData,"second-floor");
-	loadUntil($(".second-floor"),function(){
+	$(".second-floor").jdLoad(function(){
 		getHotData("../data/firstHot.json","second-floor");
 		createAccordion("second-floor");
 		getMainData("second-floor");
@@ -102,7 +102,7 @@ $(function() {
 	//loadUntil($(".third-floor"),getHotData,"../data/firstHot.json","third-floor");
 	//loadUntil($(".third-floor"),createAccordion,"third-floor");
 	//loadUntil($(".third-floor"),getMainData,"third-floor");
-	loadUntil($(".third-floor"),function(){
+	$(".third-floor").jdLoad(function(){
 		getHotData("../data/firstHot.json","third-floor");
 		createAccordion("third-floor");
 		getMainData("third-floor");
@@ -111,7 +111,7 @@ $(function() {
 	//loadUntil($(".fourth-floor"),getHotData,"../data/firstHot.json","fourth-floor");
 	//loadUntil($(".fourth-floor"),createAccordion,"fourth-floor");
 	//loadUntil($(".fourth-floor"),getMainData,"fourth-floor");
-	loadUntil($(".fourth-floor"),function(){
+	$(".fourth-floor").jdLoad(function(){
 		getHotData("../data/firstHot.json","fourth-floor");
 		createAccordion("fourth-floor");
 		getMainData("fourth-floor");
@@ -120,7 +120,7 @@ $(function() {
 	//loadUntil($(".fifth-floor"),getHotData,"../data/firstHot.json","fifth-floor");
 	//loadUntil($(".fifth-floor"),createAccordion,"fifth-floor");
 	//loadUntil($(".fifth-floor"),getMainData,"fifth-floor");
-	loadUntil($(".fifth-floor"),function(){
+	$(".fifth-floor").jdLoad(function(){
 		getHotData("../data/firstHot.json","fifth-floor");
 		createAccordion("fifth-floor");
 		getMainData("fifth-floor");
@@ -197,7 +197,8 @@ $(function() {
 	
 	//猜你喜欢部分
 	//like猜你喜欢部分
-	loadUntil($(".like"),smallCarousel,"like","discount");
+	$(".like").jdLoad(smallCarousel,"like","discount");
+	//loadUntil($(".like"),smallCarousel,"like","discount")
 	
 
 	//楼梯部分
@@ -218,7 +219,7 @@ $(function() {
 			"scrollTop": $(".floor").eq($(this).index()).offset().top,
 		}, 200, function() {
 			isClick = false;
-			//document.dispatchEvent(event);
+			
 		});
 	});
 	//滚动屏幕注册事件
