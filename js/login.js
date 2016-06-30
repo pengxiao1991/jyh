@@ -111,8 +111,13 @@ $(function() {
 //									//location.href = "index.html";
 //									history.back();
 //								}, 3000);
-								history.back();
-								location.href = document.referrer;
+								//history.back();
+								
+								if (document.referrer=="") {
+									location.href = "index.html";
+								}else{
+									location.href = document.referrer;
+								}
 								return;
 							}
 						}

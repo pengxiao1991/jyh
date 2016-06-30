@@ -686,3 +686,6 @@ div.search div.inner a {
 	font-size: 14px;
 	color: #fff;
 }
+div.search div.inner a:hover{
+	opacity: 0.8;
+}

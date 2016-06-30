@@ -245,11 +245,24 @@ function loadUntil($obj,fn){
 	var flag = true;
 	$(window).on("scroll",function(){
 		//如果滚动到指定对象中间
-		if (($(this).scrollTop()>=$obj.offset().top-$(this).height()+$obj.outerHeight(true)/2)&&($(this).scrollTop()<=$obj.offset().top+$obj.outerHeight(true)/2)&&flag) {
-			flag = false;
-			eval("fn("+temp.join(",")+")");
+		if (($(this).scrollTop()>=$obj.offset().top-$(this).height())&&($(this).scrollTop()<=$obj.offset().top+$obj.outerHeight())&&flag) {
+			
+			clearTimeout(document.timer);
+			document.timer = setTimeout(function(){
+				eval("fn("+temp.join(",")+")");
+				flag = false;
+				$(window).scroll();
+			},50);
 		}
 	});
+//	document.addEventListener("mousewheel",function(e){
+//		//如果滚动到指定对象中间
+//		
+//		if (($(window).scrollTop()>=$obj.offset().top-$(window).height())&&($(window).scrollTop()<=$obj.offset().top+$obj.outerHeight())&&flag) {
+//			flag = false;
+//			eval("fn("+temp.join(",")+")");
+//		}
+//	},false)
 }
 
 

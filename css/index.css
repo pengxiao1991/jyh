@@ -168,7 +168,9 @@
 	font-size: 16px;
 	margin: 0 auto;
 }
-
+.banner-b-r-t a.denglu:hover{
+	opacity: 0.8;
+}
 .banner-b-r-t a:last-child {
 	position: relative;
 	right: -70px;

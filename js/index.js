@@ -1,5 +1,6 @@
 
 $(function() {
+	
 	//一级菜单项的hover事件
 	$(".erji").parent().hover(function() {
 		$(this).find("div").show().prev().css({
@@ -80,28 +81,50 @@ $(function() {
 	}, 900);
 	
 	//一楼部分,
-	loadUntil($(".first-floor"),getHotData,"../data/firstHot.json","first-floor");
-	loadUntil($(".first-floor"),createAccordion,"first-floor");
-	loadUntil($(".first-floor"),getMainData,"first-floor");
-	
+	//loadUntil($(".first-floor"),getHotData,"../data/firstHot.json","first-floor");
+	//loadUntil($(".first-floor"),createAccordion,"first-floor");
+	//loadUntil($(".first-floor"),getMainData,"first-floor");
+	loadUntil($(".first-floor"),function(){
+		getHotData("../data/firstHot.json","first-floor");
+		createAccordion("first-floor");
+		getMainData("first-floor");
+	});
 	//二楼部分
-	loadUntil($(".second-floor"),getHotData,"../data/firstHot.json","second-floor");
-	loadUntil($(".second-floor"),createAccordion,"second-floor");
-	loadUntil($(".second-floor"),getMainData,"second-floor");
-	
+	//loadUntil($(".second-floor"),getHotData,"../data/firstHot.json","second-floor");
+	//loadUntil($(".second-floor"),createAccordion,"second-floor");
+	//loadUntil($(".second-floor"),getMainData,"second-floor");
+	loadUntil($(".second-floor"),function(){
+		getHotData("../data/firstHot.json","second-floor");
+		createAccordion("second-floor");
+		getMainData("second-floor");
+	});
 	//三楼部分
-	loadUntil($(".third-floor"),getHotData,"../data/firstHot.json","third-floor");
-	loadUntil($(".third-floor"),createAccordion,"third-floor");
-	loadUntil($(".third-floor"),getMainData,"third-floor");
+	//loadUntil($(".third-floor"),getHotData,"../data/firstHot.json","third-floor");
+	//loadUntil($(".third-floor"),createAccordion,"third-floor");
+	//loadUntil($(".third-floor"),getMainData,"third-floor");
+	loadUntil($(".third-floor"),function(){
+		getHotData("../data/firstHot.json","third-floor");
+		createAccordion("third-floor");
+		getMainData("third-floor");
+	});
 	//四楼部分
-	loadUntil($(".fourth-floor"),getHotData,"../data/firstHot.json","fourth-floor");
-	loadUntil($(".fourth-floor"),createAccordion,"fourth-floor");
-	loadUntil($(".fourth-floor"),getMainData,"fourth-floor");
+	//loadUntil($(".fourth-floor"),getHotData,"../data/firstHot.json","fourth-floor");
+	//loadUntil($(".fourth-floor"),createAccordion,"fourth-floor");
+	//loadUntil($(".fourth-floor"),getMainData,"fourth-floor");
+	loadUntil($(".fourth-floor"),function(){
+		getHotData("../data/firstHot.json","fourth-floor");
+		createAccordion("fourth-floor");
+		getMainData("fourth-floor");
+	});
 	//五楼部分
-	loadUntil($(".fifth-floor"),getHotData,"../data/firstHot.json","fifth-floor");
-	loadUntil($(".fifth-floor"),createAccordion,"fifth-floor");
-	loadUntil($(".fifth-floor"),getMainData,"fifth-floor");
-	
+	//loadUntil($(".fifth-floor"),getHotData,"../data/firstHot.json","fifth-floor");
+	//loadUntil($(".fifth-floor"),createAccordion,"fifth-floor");
+	//loadUntil($(".fifth-floor"),getMainData,"fifth-floor");
+	loadUntil($(".fifth-floor"),function(){
+		getHotData("../data/firstHot.json","fifth-floor");
+		createAccordion("fifth-floor");
+		getMainData("fifth-floor");
+	});
 	//从json中获得指定楼层的热销数据
 	function getHotData(url, className) {
 		$.ajax({
@@ -178,20 +201,29 @@ $(function() {
 	
 
 	//楼梯部分
+	//自定义滚轮事件
+//	var event = document.createEvent("MouseEvents");
+//	event.initMouseEvent("mousewheel",true,true,document.defaultView,0,0,0,0,0,false,false,false,false,0,null);
+//	document.onmouseup = function(){
+//		document.dispatchEvent(event);
+//	}
 	//标志位，判断是否是点击了楼层
 	var isClick = false;
 	//点击楼层
 	$(".stairs li").click(function() {
+		
 		isClick = true;
 		//屏幕滚动到相应的楼层
 		$("html,body").animate({
 			"scrollTop": $(".floor").eq($(this).index()).offset().top,
 		}, 200, function() {
 			isClick = false;
+			//document.dispatchEvent(event);
 		});
 	});
 	//滚动屏幕注册事件
-	$(window).on("scroll", function() {
+	$(window).on("scroll", function(e) {
+		
 		//如果滚动到第一层前面一半高度的地方，以及滚动到最后一层后面一半高度的地方，显示楼梯
 		if ($(this).scrollTop() >= $(".floor:first").offset().top - $(this).outerHeight() / 2 && $(this).scrollTop() <= $(".floor:last").offset().top + $(this).outerHeight() / 2) {
 			$(".stairs").show();

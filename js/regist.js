@@ -138,19 +138,20 @@ $(function() {
 				"type": "get",
 				"url": "http://apis.baidu.com/kingtto_media/106sms/106sms",
 				"async": true,
-				"data": JSON.stringify({
+				//不能用json字符串，可以用对象，也可以用查询字符串（name=value&name=value）
+				"data": {
 					"mobile": $(".content-l input:first").val(),
-					"content": "【家有惠】验证码：" + authCode + "",
-					"tag":2
-				}),
+					"content": "【家有惠】验证码：" + authCode,
+					"tag": 2
+				},
 				"dataType": "json",
 				"headers": {
 					"apikey": "2a1534ddf549d79e069961b1b93388b5"
 				},
 				"complete": function(data) {
 					console.log(data.responseText);
-					console.log($(".content-l input:first").val());
-					
+					console.log(authCode);
+
 				}
 			});
 			//定时器，为了防止多次连续发送短信
@@ -186,8 +187,8 @@ $(function() {
 					"next": false,
 					"name": $(".content-l input:eq(0)").val(),
 					"password": $(".content-l input:eq(1)").val(),
-					"shopCar":[],
-					"order":[]
+					"shopCar": [],
+					"order": []
 				};
 
 				if (cookieArr == "") {
@@ -211,9 +212,9 @@ $(function() {
 				setTimeout(function() {
 					$(cover).find("i").text(1)
 				}, 2000);
-//				setTimeout(function() {
-//					$(cover).find("i").text(0)
-//				}, 3000);
+				//				setTimeout(function() {
+				//					$(cover).find("i").text(0)
+				//				}, 3000);
 				setTimeout(function() {
 					location.href = "index.html";
 				}, 3000);

@@ -115,6 +115,10 @@
 	margin-left: 90px;
 	color: white;
 	background: #DC0F50;
+	cursor: pointer;
+}
+.content-l form fieldset:last-child input:last-child:hover{
+	opacity: 0.8;
 }
 .content-l>a{
 	margin-left: 282px;
