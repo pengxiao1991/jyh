@@ -147,7 +147,7 @@ $(function() {
 	smallCarousel("like","discount");
 	
 	//图片的hover特效
-	$("img", ".onTimer,.onAir,.like").picHover(200, 200, "#fff", "#dc0f50", 2);
+	$("img", ".onTimer .margin,.onAir .margin,.like .margin").picHover(200, 200, "#fff", "#dc0f50", 2);
 	//文字的hover特效
 	$("a", ".onTimer li,.onAir li,.like li").hover(function() {
 		$(this).find("p").css({

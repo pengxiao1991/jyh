@@ -335,9 +335,15 @@
 	text-align: center;
 	display: none;
 }
-.content-b-b .detail ul li img{
+.content-b-b .detail ul li{
+	
+	height: 889px;
+}
+.content-b-b .detail ul li img:last-child{
 	width: 1080px;
 	height: 889px;
+	/*为了实现京东的加载效果*/
+	display: none;
 }
 
 .content-b-b .argument {
@@ -353,6 +359,7 @@
 
 .content-b-b .argument ul li {
 	margin-bottom: 30px;
+	
 }
 
 .content-b-b .argument ul li span {

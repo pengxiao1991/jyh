@@ -64,15 +64,25 @@
 				//加载商品详情的图片
 				html = "";
 				for (var i = 0; i < goodInf.detailImg.length; i++) {
-					html+="<li><img src=\"\" /></li>";
+					html+="<li><img class=\"img-load\" src=\"../img/loading.gif\" /><img src=\"\" /></li>";
 					
 				}
 				$(".detail ul").html(html);
+				//动态加入加载图片，并设置居中效果
+				$(".content-b-b .detail ul li img:first-child").css({
+					"width":200,
+					"height":120
+					
+				});
+				$(".content-b-b .detail ul li img:first-child").css({
+					//"margin-left": (0.5*$(".content-b-b .detail ul li").width()-$(".content-b-b .detail ul li img:first-child").width()/2),
+					"margin-top": (0.5*$(".content-b-b .detail ul li").height()-$(".content-b-b .detail ul li img:first-child").height()/2)
+				});
 				//根据滚动加载当前图片
-				$(".detail ul li img").each(function(index){
+				$(".detail ul li").each(function(index){
 					$(this).jdLoad(function(){
-						
-						$(".detail ul li img").eq(index).attr({"src":goodInf.detailImg[index]});
+						$(".detail ul li img:first-child").eq(index).hide();
+						$(".detail ul li img:last-child").eq(index).show().attr({"src":goodInf.detailImg[index]});
 					});
 				});
 				

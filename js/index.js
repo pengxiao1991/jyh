@@ -61,9 +61,13 @@ $(function() {
 	}
 
 	//onAir直播部分
-	$(".onAir").jdLoad(smallCarousel,"onAir","time")
+	$(".onAir").jdLoad(function(){
+		smallCarousel("onAir","time");
+	});
 	//onTimer限时抢购部分
-	$(".onTimer").jdLoad(smallCarousel,"onTimer","discount")
+	$(".onTimer").jdLoad(function(){
+		smallCarousel("onTimer","discount");
+	})
 
 	//onTimer的倒计时
 	var timeLine = setInterval(function() {
@@ -85,46 +89,52 @@ $(function() {
 	//loadUntil($(".first-floor"),createAccordion,"first-floor");
 	//loadUntil($(".first-floor"),getMainData,"first-floor");
 	$(".first-floor").jdLoad(function(){
+		getMainData("first-floor");
 		getHotData("../data/firstHot.json","first-floor");
 		createAccordion("first-floor");
-		getMainData("first-floor");
+		
 	});
 	//二楼部分
 	//loadUntil($(".second-floor"),getHotData,"../data/firstHot.json","second-floor");
 	//loadUntil($(".second-floor"),createAccordion,"second-floor");
 	//loadUntil($(".second-floor"),getMainData,"second-floor");
 	$(".second-floor").jdLoad(function(){
+		getMainData("second-floor");
 		getHotData("../data/firstHot.json","second-floor");
 		createAccordion("second-floor");
-		getMainData("second-floor");
+		
 	});
 	//三楼部分
 	//loadUntil($(".third-floor"),getHotData,"../data/firstHot.json","third-floor");
 	//loadUntil($(".third-floor"),createAccordion,"third-floor");
 	//loadUntil($(".third-floor"),getMainData,"third-floor");
 	$(".third-floor").jdLoad(function(){
+		getMainData("third-floor");
 		getHotData("../data/firstHot.json","third-floor");
 		createAccordion("third-floor");
-		getMainData("third-floor");
+		
 	});
 	//四楼部分
 	//loadUntil($(".fourth-floor"),getHotData,"../data/firstHot.json","fourth-floor");
 	//loadUntil($(".fourth-floor"),createAccordion,"fourth-floor");
 	//loadUntil($(".fourth-floor"),getMainData,"fourth-floor");
 	$(".fourth-floor").jdLoad(function(){
+		getMainData("fourth-floor");
 		getHotData("../data/firstHot.json","fourth-floor");
 		createAccordion("fourth-floor");
-		getMainData("fourth-floor");
+		
 	});
 	//五楼部分
 	//loadUntil($(".fifth-floor"),getHotData,"../data/firstHot.json","fifth-floor");
 	//loadUntil($(".fifth-floor"),createAccordion,"fifth-floor");
 	//loadUntil($(".fifth-floor"),getMainData,"fifth-floor");
 	$(".fifth-floor").jdLoad(function(){
+		getMainData("fifth-floor");
 		getHotData("../data/firstHot.json","fifth-floor");
 		createAccordion("fifth-floor");
-		getMainData("fifth-floor");
+		
 	});
+	
 	//从json中获得指定楼层的热销数据
 	function getHotData(url, className) {
 		$.ajax({
@@ -140,15 +150,9 @@ $(function() {
 					$li.find("p")[0].innerHTML = value.description;
 					$li.find("span:last")[0].innerHTML = value.price;
 				});
-			},
-			"beforeSend":function(){
-				var $li = $("." + className + " .floor-b-r li");
-				$li.find("img").attr({"src":"../img/loading.gif"});
-			}
-		});
-		
+			}	
+		});	
 	}
-	
 	//从json中获取指定楼层的主体信息
 	function getMainData(className){
 		$.ajax({
@@ -158,7 +162,11 @@ $(function() {
 			"dataType":"json",
 			"success":function(data){
 				//通过json获得的数据，将其设置到指定类名的对应的结构上
-		
+				//显示要加载内容的html结构
+				$("." + className + " .margin").show();
+				//隐藏加载图片
+				$("." + className + " .img-load").hide();
+				
 				var $far = $("." + className + " .floor-b");
 				$(".floor-b-l-t a img",$far).attr({"src":data[className].bannerImg[0]});
 				$(".floor-b-c-b a img:first",$far).attr({"src":data[className].bannerImg[1]});
@@ -169,14 +177,19 @@ $(function() {
 				});
 			},
 			"beforeSend":function(){
-				var $far = $("." + className + " .floor-b");
-				$(".floor-b-l-t a img",$far).attr({"src":"../img/loading.gif"});
-				$(".floor-b-c-b a img:first",$far).attr({"src":"../img/loading.gif"});
-				$(".floor-b-c-b a img:eq(1)",$far).attr({"src":"../img/loading.gif"});
-				$(".floor-b-c-b a img:last",$far).attr({"src":"../img/loading.gif"});
-				$(".floor-b-l-b li a img",$far).each(function(index){
-					$(this).attr({"src":"../img/loading.gif"});
+				//动态加入加载图片，并设置居中效果
+				$("<img class=\"img-load\" src=\"../img/loading.gif\"/>").insertBefore($("." + className + " .margin"));
+				
+				$("." + className + " .margin").prev().css({
+					"width":200,
+					"height":120
+					
 				});
+				$("." + className + " .margin").prev().css({
+					"margin-left": (0.5*$("." + className + " .margin").width()-$("." + className + " .margin").prev().width()/2),
+					"margin-top": (0.5*$("." + className).height()-$("." + className + " .margin").prev().height()/2)
+				});
+				
 			}
 		});
 	
@@ -197,8 +210,10 @@ $(function() {
 	
 	//猜你喜欢部分
 	//like猜你喜欢部分
-	$(".like").jdLoad(smallCarousel,"like","discount");
-	//loadUntil($(".like"),smallCarousel,"like","discount")
+	$(".like").jdLoad(function(){
+		smallCarousel("like","discount");
+	});
+	
 	
 
 	//楼梯部分
@@ -249,7 +264,7 @@ $(function() {
 	//页面加载时触发一次屏幕滚动事件，看是否显示楼层
 	$(window).trigger("scroll");
 	//图片的hover特效
-	$("img", ".onTimer,.onAir,.like").picHover(200, 200, "#fff", "#dc0f50", 2);
+	$("img", ".onTimer .margin,.onAir .margin,.like .margin").picHover(200, 200, "#fff", "#dc0f50", 2);
 	//文字的hover特效
 	$("a", ".onTimer li,.onAir li,.like li").hover(function() {
 		$(this).find("p").css({

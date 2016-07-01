@@ -170,27 +170,56 @@
 })();
 //小轮播图封装的函数
 function smallCarousel(className,type){
-	$.getJSON("../data/smallCarousel.json", function(data) {
+	$.ajax({
+		type:"get",
+		url:"../data/smallCarousel.json",
+		async:true,
+		"success":function(data){
+			//显示要加载内容的html结构
+			$("." + className + " .margin").show();
+			//隐藏加载图片
+			$("." + className + " .img-load").hide();
+			
+			$("."+className+" li a").each(function(index){
 
-		$("."+className+" li a").each(function(index) {
-
-			$(this).find("img").prop({
-				"src": data[index].src
+					$(this).find("img").prop({
+						"src": data[index].src
+					});
+					if (type=="discount") {
+						$(this).find("b").text(data[index].discount);
+					}
+					else{
+						$(this).find("b").text(data[index].time);
+					}
+					$(this).find("p").text(data[index].description);
+					$(this).find("span").text(data[index].price);
+					$(this).find("i").text(data[index].oldPrice);
 			});
-			if (type=="discount") {
-				$(this).find("b").text(data[index].discount);
+				//克隆第一个li放到ul的最后
+				$("."+className+" ul li:first").clone(true).appendTo($("."+className+" ul"));
+		
+			
+		},
+		"beforeSend":function(){
+				//动态加入加载图片，并设置居中效果
+				$("<img class=\"img-load\" src=\"../img/loading.gif\"/>").insertBefore($("." + className + " .margin"));
+				
+				$("." + className + " .margin").prev().css({
+					"width":200,
+					"height":120
+					
+				});
+				$("." + className + " .margin").prev().css({
+					"margin-left": (0.5*$("." + className + " .margin").width()-$("." + className + " .margin").prev().width()/2),
+					"margin-top": (0.5*$("." + className).height()-$("." + className + " .margin").prev().height()/2)
+				});
+				
 			}
-			else{
-				$(this).find("b").text(data[index].time);
-			}
-			$(this).find("p").text(data[index].description);
-			$(this).find("span").text(data[index].price);
-			$(this).find("i").text(data[index].oldPrice);
-		});
-		//克隆第一个li放到ul的最后
-		$("."+className+" ul li:first").clone(true).appendTo($("."+className+" ul"));
-
+		
 	});
+	
+
+		
 	//给like的按钮注册事件
 	startMove(""+className+"");
 	//小轮播图的左右按钮注册事件

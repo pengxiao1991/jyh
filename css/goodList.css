@@ -482,8 +482,13 @@ div.ul ul li a .a-b-l p {
 .onTimer,
 .onAir {
 	margin-top: 40px;
+	height: 370px;
 }
-
+.like .margin,
+.onTimer .margin,
+.onAir .margin{
+	display: none;
+}
 .like-t,
 .onTimer-t,
 .onAir-t {
