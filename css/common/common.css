@@ -381,9 +381,10 @@ html,body {
 /*nav部分样式*/
 #nav{
 	height: 42px;
+	border-bottom: 2px solid #dc0f50;
 }
 .banner-t {
-	border-bottom: 2px solid #dc0f50;
+	
 }
 
 .banner-t-l {
@@ -392,9 +393,9 @@ html,body {
 	cursor: pointer;
 	/*border-bottom: 2px solid #dc0f50;*/
 	margin-right: 30px;
-	height: 40px;
+	height: 42px;
 	overflow: hidden;
-	line-height: 40px;
+	line-height: 42px;
 	float: left;
 	background: #333;
 	color: #fff;
@@ -440,21 +441,26 @@ html,body {
 .banner-b {}
 
 .banner-b-l {
-	position: absolute;
+	
 	display: none;
+	position: absolute;
 	z-index: 1;
 	/*用来让hover事件不出现bug*/
 	border-top: 2px solid #dc0f50;
-	margin-top: -2px;
+	margin-top: 0px;
 	/*如果使用left就是相对于窗口定位，会根据屏幕大小而改变*/
-	margin-left: 32px;
+	
+	
 }
 
 .banner-b-l ul {
+	
 	padding-bottom: 116px;
 	border: 1px solid #E5E5E5;
 	background: #FFFFFF;
 	border-top: 0;
+	margin-left: -1px;
+	width: 233px;
 }
 
 .banner-b-l ul li {

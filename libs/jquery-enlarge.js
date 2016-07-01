@@ -103,7 +103,7 @@
 			//给它注册mousemove事件和mouseleave事件
 			var small = $("div:first", this.container);
 			small.on("mousemove", function(e) {
-				//this指的是当前的dom对象
+				//this指的是当前的dom对象,就是小div的dom对象
 				//获取滤镜块的jquery对象
 				var $track = $("div", this);
 				//获取大图的jquery对象

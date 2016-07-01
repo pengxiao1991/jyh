@@ -54,7 +54,7 @@
 
 .banner-b {}
 
-.banner-b-l {display: block;position: static;margin-left: 0;}
+.banner-b-l {display: block;position: static;margin-left: 0;border-top: 0;}
 
 .banner-b-l ul {
 	padding-bottom: 116px;
