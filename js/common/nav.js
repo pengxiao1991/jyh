@@ -30,7 +30,6 @@
 		$(this).removeClass("on");
 		$(".banner-b-l").show();
 	}, function(e) {
-		
 		if (e.relatedTarget != $(".banner-b-l")[0] && e.relatedTarget.nodeName != "A") {
 			//改变背景图片
 			$(this).addClass("on");

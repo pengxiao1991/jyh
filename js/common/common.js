@@ -1,5 +1,12 @@
 /*包含头部js，尾部js*/
-
+//搜索建议的回调函数，显示建议框，并将获得的数据显示出来
+function getSuggestion(data){
+	
+	console.log(data.s);
+	$(".suggestion ul li").each(function(index){
+		$(this).text(data["s"][index]);
+	});
+}
 //头部js
 //需要放在cookie插件后面
 //$(function(){
@@ -53,15 +60,146 @@
 		$("div.wx", header).toggle();
 	});
 	//搜索框前的搜索类别的hover和click事件
-	$(".header-b-c-t ul").hover(function() {
+	$(".header-b-c-t>ul").hover(function() {
 		$(this).find("li:last-child").show();
 
 	}, function() {
 		$(this).find("li:last-child").hide();
 	});
-	$(".header-b-c-t li").click(function() {
+	$(".header-b-c-t>ul li").click(function() {
 		$(this).siblings().before($(this)).hide();
 	});
+	//搜索框的suggestion部分
+	//在搜索框输入时，发送ajax的跨域请求
+	//记录当前所在的建议栏
+	var count = 0;
+	$(".header-b-c-t>div input").keydown(function(e){
+		//如果输入向下键
+		if (e.which==40) {
+			//如果建议框已经显示了，
+			if ($(".header-b-c-t>div .suggestion:visible").length==1) {
+				//如果还没有待选项
+				if (!$(".header-b-c-t>div .suggestion ul li").hasClass("on")) {
+					$(".header-b-c-t>div .suggestion ul li").eq(0).addClass("on");
+				} else if(count==9){
+					$(".header-b-c-t>div .suggestion ul li").eq(count).removeClass("on");
+					count = 0;
+					$(".header-b-c-t>div .suggestion ul li").eq(count).addClass("on");
+				}
+				else{
+					$(".header-b-c-t>div .suggestion ul li").eq(count++).removeClass("on");
+					$(".header-b-c-t>div .suggestion ul li").eq(count).addClass("on");
+				}
+				
+			}
+		//如果输入向下键
+		} else if(e.which==38){
+			//如果建议框已经显示了，
+			if ($(".header-b-c-t>div .suggestion:visible").length==1) {
+				//如果还没有待选项
+				if (!$(".header-b-c-t>div .suggestion ul li").hasClass("on")) {
+					$(".header-b-c-t>div .suggestion ul li").eq(9).addClass("on");
+					count = 9;
+				}  else if(count==0){
+					$(".header-b-c-t>div .suggestion ul li").eq(count).removeClass("on");
+					count = 9;
+					$(".header-b-c-t>div .suggestion ul li").eq(count).addClass("on");
+				}
+				else{
+					$(".header-b-c-t>div .suggestion ul li").eq(count--).removeClass("on");
+					$(".header-b-c-t>div .suggestion ul li").eq(count).addClass("on");
+				}
+				
+				
+			}
+		}
+	});
+	$(".header-b-c-t>div input").keyup(function(e){
+		//如果输入为空，隐藏建议框
+		if ($(this).val().length==0) {
+			$(".header-b-c-t>div .suggestion").hide();
+		} 
+		else{
+			//如果输入向下键
+			if (e.which==40) {
+				
+				//不发送ajax请求
+				return;
+				}
+			//如果输入向下键
+		 else if(e.which==38){
+				//不发送ajax请求
+				return;
+					
+				
+			}
+			//如果输入回车
+			else if (e.which==13) {
+				//如果有待选项
+				if ($(".header-b-c-t>div .suggestion ul li").hasClass("on")) {
+						//选中某一项时隐藏建议框，还原count，和待选项
+						
+						$(".header-b-c-t>div input").val($(".header-b-c-t>div .suggestion ul li").eq(count).text());
+						$(".header-b-c-t>div .suggestion").hide();
+						$(".header-b-c-t>div .suggestion ul li").eq(count).removeClass("on");
+						count = 0;
+						//不发送ajax请求
+						//return;
+				}
+				else{
+					//不发送ajax请求
+					//return;
+				}
+				
+				
+				
+			}
+			//获得搜索建议，其中“wd”为查询字符串，cb为回调函数名，其余参数为固定值
+			$.ajax({
+				"type":"get",
+				"url":"http://suggestion.baidu.com/su",
+				"async":true,
+				"dataType":"jsonp",
+				"data": { "wd": $(this).val().trim(), "p": "3", "cb": "getSuggestion", "t": "1324113456725"},
+				"complete":function(xhr){
+					console.log($(".header-b-c-t>div input").val().trim());
+					$(".header-b-c-t>div .suggestion").show();	
+					
+				}
+			});
+			
+			
+			
+		}
+		
+	}).blur(function(){
+		//失去焦点时，隐藏建议框
+
+		$(".header-b-c-t>div .suggestion").hide();
+		//还原待选项和count
+		$(".header-b-c-t>div .suggestion ul li").removeClass("on");
+		count = 0;
+	});
+	
+	//只能使用mousedown，因为mouseup和click发生在blur事件之后
+	$(".header-b-c-t>div .suggestion ul li").mousedown(function(){
+		//选中某一项时隐藏建议框
+		$(this).removeClass("on");
+		count = 0;
+		$(".header-b-c-t>div input").val($(this).text());
+		$(".header-b-c-t>div .suggestion").hide();
+		
+		
+		
+	}).hover(function(){
+		
+		$(this).addClass("on").siblings().removeClass("on");
+		count = $(this).index();
+		
+	},function(){
+		$(this).removeClass("on");
+	});
+	
 	//获取搜索框下方热搜数据,路径是相对于html文件
 	$.getJSON("../data/hotSearch.json", function(data) {
 		$.each(data, function(index, value) {
@@ -175,10 +313,6 @@ function smallCarousel(className,type){
 		url:"../data/smallCarousel.json",
 		async:true,
 		"success":function(data){
-			//显示要加载内容的html结构
-			$("." + className + " .margin").show();
-			//隐藏加载图片
-			$("." + className + " .img-load").hide();
 			
 			$("."+className+" li a").each(function(index){
 
@@ -195,9 +329,14 @@ function smallCarousel(className,type){
 					$(this).find("span").text(data[index].price);
 					$(this).find("i").text(data[index].oldPrice);
 			});
-				//克隆第一个li放到ul的最后
-				$("."+className+" ul li:first").clone(true).appendTo($("."+className+" ul"));
-		
+			//克隆第一个li放到ul的最后
+			$("."+className+" ul li:first").clone(true).appendTo($("."+className+" ul"));
+			//隐藏加载图片
+			$("." + className + " .img-load").hide();
+			
+			//显示要加载内容的html结构
+			$("." + className + " .margin").show();
+			
 			
 		},
 		"beforeSend":function(){

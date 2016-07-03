@@ -157,14 +157,14 @@ html,body {
 	border: 1px solid #dc0f50;
 }
 
-.header-b-c-t ul li {
+.header-b-c-t>ul li {
 	background: #ddd;
 	padding: 0 10px;
 	line-height: 42px;
 	height: 42px;
 }
 
-.header-b-c-t ul li:last-child {
+.header-b-c-t>ul li:last-child {
 	display: none;
 	position: absolute;
 }
@@ -179,7 +179,23 @@ html,body {
 	padding: 2px 10px;
 	height: 38px;
 }
-
+.header-b-c-t div .suggestion{
+	position: absolute;
+	z-index: 1;
+	background: white;
+	height: auto;
+	width: 348px;
+	border: 1px solid #D6D6D6;
+	display: none;
+}
+.header-b-c-t div .suggestion ul{}
+.header-b-c-t div .suggestion ul li{
+	cursor: pointer;
+	padding-left: 10px;
+}
+.header-b-c-t div .suggestion ul li.on{
+	background: #DDDDDD;
+}
 .header-b-c-t a {
 	color: white;
 	line-height: 42px;

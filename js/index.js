@@ -85,53 +85,43 @@ $(function() {
 	}, 900);
 	
 	//一楼部分,
-	//loadUntil($(".first-floor"),getHotData,"../data/firstHot.json","first-floor");
-	//loadUntil($(".first-floor"),createAccordion,"first-floor");
-	//loadUntil($(".first-floor"),getMainData,"first-floor");
 	$(".first-floor").jdLoad(function(){
-		getMainData("first-floor");
+		
 		getHotData("../data/firstHot.json","first-floor");
 		createAccordion("first-floor");
+		getMainData("first-floor");
 		
 	});
 	//二楼部分
-	//loadUntil($(".second-floor"),getHotData,"../data/firstHot.json","second-floor");
-	//loadUntil($(".second-floor"),createAccordion,"second-floor");
-	//loadUntil($(".second-floor"),getMainData,"second-floor");
 	$(".second-floor").jdLoad(function(){
-		getMainData("second-floor");
+		
 		getHotData("../data/firstHot.json","second-floor");
 		createAccordion("second-floor");
+		getMainData("second-floor");
 		
 	});
 	//三楼部分
-	//loadUntil($(".third-floor"),getHotData,"../data/firstHot.json","third-floor");
-	//loadUntil($(".third-floor"),createAccordion,"third-floor");
-	//loadUntil($(".third-floor"),getMainData,"third-floor");
 	$(".third-floor").jdLoad(function(){
-		getMainData("third-floor");
+		
 		getHotData("../data/firstHot.json","third-floor");
 		createAccordion("third-floor");
+		getMainData("third-floor");
 		
 	});
 	//四楼部分
-	//loadUntil($(".fourth-floor"),getHotData,"../data/firstHot.json","fourth-floor");
-	//loadUntil($(".fourth-floor"),createAccordion,"fourth-floor");
-	//loadUntil($(".fourth-floor"),getMainData,"fourth-floor");
 	$(".fourth-floor").jdLoad(function(){
-		getMainData("fourth-floor");
+		
 		getHotData("../data/firstHot.json","fourth-floor");
 		createAccordion("fourth-floor");
+		getMainData("fourth-floor");
 		
 	});
 	//五楼部分
-	//loadUntil($(".fifth-floor"),getHotData,"../data/firstHot.json","fifth-floor");
-	//loadUntil($(".fifth-floor"),createAccordion,"fifth-floor");
-	//loadUntil($(".fifth-floor"),getMainData,"fifth-floor");
 	$(".fifth-floor").jdLoad(function(){
-		getMainData("fifth-floor");
+		
 		getHotData("../data/firstHot.json","fifth-floor");
 		createAccordion("fifth-floor");
+		getMainData("fifth-floor");
 		
 	});
 	
@@ -162,10 +152,6 @@ $(function() {
 			"dataType":"json",
 			"success":function(data){
 				//通过json获得的数据，将其设置到指定类名的对应的结构上
-				//显示要加载内容的html结构
-				$("." + className + " .margin").show();
-				//隐藏加载图片
-				$("." + className + " .img-load").hide();
 				
 				var $far = $("." + className + " .floor-b");
 				$(".floor-b-l-t a img",$far).attr({"src":data[className].bannerImg[0]});
@@ -175,6 +161,12 @@ $(function() {
 				$(".floor-b-l-b li a img",$far).each(function(index){
 					$(this).attr({"src":data[className].footerImg[index]});
 				});
+				//隐藏加载图片
+				$("." + className + " .img-load").hide();
+				//显示要加载内容的html结构
+				$("." + className + " .margin").show();
+				
+				
 			},
 			"beforeSend":function(){
 				//动态加入加载图片，并设置居中效果
